@@ -1,0 +1,24 @@
+{
+  "name": "emenella-app",
+  "version": "1.0.0",
+  "description": "WebApp personnal",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emenella/MyWebApp.git"
+  },
+  "author": "emenella",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emenella/MyWebApp/issues"
+  },
+  "homepage": "https://github.com/emenella/MyWebApp#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.1.1"
+  }
+}
