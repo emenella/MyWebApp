@@ -3,13 +3,14 @@ var fileController = require('../controllers/uploadFile');
 var router = express.Router();
 
 
-router.get('/', (req, res) => {
-
-});
-
 router.post('/add', fileController.uploadFile);
+router.post('/addlink/:id', fileController.addLink)
 
-router.get('/link', fileController.getAllLinks);
-router.get('/link/:id', fileController.getLink);
+router.get('/', fileController.getAllLinks);
+router.get('/:id', fileController.getLink);
+router.get('/dl/:link', fileController.dowloadFile);
+
+router.delete('/delete/:id', fileController.deleteFile);
+router.delete('/deleteLink/:id', fileController.deleteLink);
 
 module.exports = router;
