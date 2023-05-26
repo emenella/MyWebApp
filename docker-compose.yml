@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  # backend:
+  #   container_name: MyWebApp-backend
+  #   build:
+  #     context: ./backend/
+  #     dockerfile: ${DOCKERFILE}
+  #   env_file: .env
+  #   volumes:
+  #     - ./backend:src:/app/backend:src
+  #   networks:
+  #     - network
+  #   ports:
+  #     - 4200:4200
+
+  database:
+    container_name: MyWebApp-database
+    image: postgres:15.1
+    env_file: .env
+    volumes:
+      - database:/var/lib/postgresql/data
+    networks:
+      - network
+    restart: on-failure
+    init: true
+
+  frontend:
+    container_name: MyWebApp-frontend
+    build:
+      context: ./frontend
+      dockerfile: ${DOCKERFILE}
+    env_file: .env
+    volumes:
+      - ./frontend/src:/app/frontend/src
+    networks:
+      - front-end
+    ports:
+      - 8080:8080
+
+networks:
+  network:
+  front-end:
+
+volumes:
+  database:
