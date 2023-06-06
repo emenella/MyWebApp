@@ -1,21 +1,23 @@
 version: '3'
 
 services:
-  # backend:
-  #   container_name: MyWebApp-backend
-  #   build:
-  #     context: ./backend/
-  #     dockerfile: ${DOCKERFILE}
-  #   env_file: .env
-  #   volumes:
-  #     - ./backend:src:/app/backend:src
-  #   networks:
-  #     - network
-  #   ports:
-  #     - 4200:4200
+  backend:
+    container_name: MyWebApp-backend
+    hostname: backend
+    build:
+      context: ./backend/
+      dockerfile: ${DOCKERFILE}
+    env_file: .env
+    volumes:
+      - ./backend:src:/app/backend:src
+    networks:
+      - network
+    ports:
+      - 4200:4200
 
   database:
     container_name: MyWebApp-database
+    hostname: database
     image: postgres:15.1
     env_file: .env
     volumes:

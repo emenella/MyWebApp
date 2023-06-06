@@ -22,7 +22,6 @@ export const Public = ({data}: { data: DataPublic }) => {
             <School profile={data.school}></School>
             <Diploma diploma={data.diplomas}></Diploma>
             <Experience experiences={data.experiences}></Experience>
-            {/* <Project projects={data.projects}></Project> */}
             <Skill skills={data.skills}></Skill>
         </div>
         );
