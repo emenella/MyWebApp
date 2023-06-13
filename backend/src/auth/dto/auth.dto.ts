@@ -34,6 +34,5 @@ export class CreationUser
 
     @IsNotEmpty()
     @IsString()
-    @IsStrongPassword()
     password: string;
 }

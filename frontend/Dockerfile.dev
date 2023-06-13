@@ -8,6 +8,4 @@ RUN npm ci
 
 COPY . .
 
-VOLUME [ "/app/frontend/src" ]
-
 ENTRYPOINT [ "npm", "run", "dev" ]

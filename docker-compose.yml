@@ -9,7 +9,7 @@ services:
       dockerfile: ${DOCKERFILE}
     env_file: .env
     volumes:
-      - ./backend:src:/app/backend:src
+      - ./backend/src:/app/backend/src
     networks:
       - network
     ports:
@@ -36,13 +36,12 @@ services:
     volumes:
       - ./frontend/src:/app/frontend/src
     networks:
-      - front-end
+      - network
     ports:
       - 8080:8080
 
 networks:
   network:
-  front-end:
 
 volumes:
   database:
