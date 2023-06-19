@@ -10,7 +10,7 @@ import { SkillType } from './component/Public/interface'
 const dataExample : DataPublic = {
   profile: {
     firstName: 'John',
-    lastName: 'Doe',
+    lastName: 'Menella',
     age: 25,
     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
     img: 'https://picsum.photos/200/300'

@@ -1,4 +1,4 @@
-import { useState  } from "react";
+import { useEffect, useState  } from "react";
 import { useNavigate } from "react-router-dom";
 
 
@@ -39,6 +39,23 @@ export const NavBar = ({ navigation }: NavProps) => {
         }
       setNav(newNav);
     };
+
+    useEffect(() => {
+        const newNav = nav.map((item) => {
+            if (item.link === window.location.pathname) {
+                return {
+                    ...item,
+                    current: true,
+                };
+            } else {
+                return {
+                    ...item,
+                    current: false,
+                };
+            }
+        });
+        setNav(newNav);
+    }, []);
   
     return (
       <nav className="bg-green-300">

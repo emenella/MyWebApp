@@ -12,7 +12,7 @@ const Project = ({ projects }: Props) => {
           <div key={index}>
             <h2 className="text-lg font-bold mb-2">{project.title}</h2>
             <p className="text-gray-600 mb-4">{project.description}</p>
-            <img className="w-full mb-4" src={project.img} alt={project.title} />
+            <img className="mb-4" src={project.img} alt={project.title} />
             <a
               href={project.link}
               target="_blank"
