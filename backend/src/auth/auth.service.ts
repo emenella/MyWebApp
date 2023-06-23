@@ -63,7 +63,6 @@ export class AuthService {
         }
     }
 
-
     async generateJwtTokens(userId: number, username: string): Promise<{access_token: string, refresh_token: string}> {
         const [access_token, refresh_token] = await Promise.all([
             this.jwtService.signAsync({ sub: userId, username }, { expiresIn: '15m', secret: JwtSecret.access_token }),
@@ -76,5 +75,20 @@ export class AuthService {
     async updateRefreshToken(userId: number, refresh_token: string): Promise<User> {
         const encryptedRefreshToken = bcrypt.hashSync(refresh_token, 10);
         return this.userService.update(userId, { refresh_token: encryptedRefreshToken });
+    }
+
+    async checkRefreshToken(userId: number, refreshToken: string): Promise<boolean> {
+        const user = await this.userService.findById(userId);
+        return bcrypt.compare(refreshToken, user.refresh_token);
+    }
+
+    async refreshToken(userId: number, refreshToken: string): Promise<{access_token: string, refresh_token: string}> {
+        const isMatch = await this.checkRefreshToken(userId, refreshToken);
+        if (isMatch) {
+            return await this.generateJwtTokens(userId, (await this.userService.findById(userId)).username);
+        }
+        else {
+            throw new HttpException('Wrong refresh token', HttpStatus.UNAUTHORIZED);
+        }
     }
 }
