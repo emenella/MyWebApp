@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 const Footer = () => {
-    const [showFooter, setShowFooter] = useState(false);
+    const [showFooter, setShowFooter] = useState(true);
     
     useEffect(() => {
         const handleScroll = () => {
@@ -15,7 +15,7 @@ const Footer = () => {
         };
     }, []);
     return (
-        <footer className={`bg-gray-800 py-4 text-white ${showFooter ? 'fixed bottom-0 w-full' : 'hidden'}`}>
+        <footer className={"bg-amber-800 p-4"}>
             <div className="container mx-auto text-center">
                 <p>&copy; 2023 Mon Entreprise. Tous droits réservés.</p>
             </div>

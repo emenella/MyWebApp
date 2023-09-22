@@ -6,6 +6,7 @@ import Footer from './component/common/Footer'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Project from './component/Public/Project'
 import { SkillType } from './component/Public/interface'
+import { Login } from './component/Private/Auth'
 
 const dataExample : DataPublic = {
   profile: {
@@ -140,20 +141,25 @@ const dataExample : DataPublic = {
 }
 
 const navExample : NavProps["navigation"] = [{name:"CV", link:"/", current: true}, {name:"Projects", link:"/projects", current: false}, {name:"Contact", link:"/contact", current: false}];
-
 //Component
 const App = () => {
   const [data] = useState<DataPublic>(dataExample);
   const [nav] = useState<NavProps["navigation"]>(navExample);
+  const mapComponent = new Map([["CV", <Public data={data} />], ["Projects", <Project projects={data.projects} />]]);
 
   return (
-    <div className='h-full w-screen bg-blue-300' >
+    <div className='flex flex-col min-h-screen bg-blue-300' >
       <Router>
       <NavBar navigation={nav} />
-        <Routes>
-          <Route path="/" element={<Public data={data} />}/>
-          <Route path="/projects" element={<Project projects={data.projects} />}/>
-        </Routes>
+        <div className='flex p-4 justify-center items-center'>
+          <Routes>
+            {nav.map((item, index) => (
+              <Route key={index} path={item.link} element={mapComponent.get(item.name)} />
+            ))}
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </div>
+        
       </Router>
       <Footer />
     </div>

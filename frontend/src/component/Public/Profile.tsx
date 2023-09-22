@@ -2,7 +2,7 @@ import { profile } from './interface';
 
 export const Profile = ({ profile }: { profile: profile }) => {
     return (
-      <div className="bg-yellow-100 border border-gray-400 p-4 rounded-md mb-5">
+      <div className="bg-yellow-100 p-4 shadow-md rounded-md mb-5">
         <div className="flex items-center">
           <div className="w-20 h-20 mr-4">
             <img className="rounded-full" src={profile.img} alt="profile" />

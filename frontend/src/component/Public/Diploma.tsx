@@ -6,7 +6,7 @@ interface Props {
 
 export const Diploma = ({ diploma }: Props) => {
     return (
-        <div className="bg-purple-400 border border-gray-400 p-4 rounded-md mb-5">
+        <div className="bg-purple-400 p-4 shadow-md rounded-md mb-5">
             <h1 className="text-2xl font-bold">Diploma</h1>
             {diploma.map((item, index) => { return(
                 <div key={index} className="mb-4">
@@ -17,7 +17,7 @@ export const Diploma = ({ diploma }: Props) => {
                             <p className="text-yellow-950">{item.school.degree}</p>
                             <p className="text-yellow-950">{item.school.date}</p>
                         </div>
-                        <div className="bg-gray-200 border-gray-400 p-5 rounded-md">
+                        <div className="bg-gray-200 border border-gray-400 p-5 shadow-md rounded-md mb-5">
                             <p>{item.school.description}</p>
                         </div>
                     </div>

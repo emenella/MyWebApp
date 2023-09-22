@@ -2,7 +2,7 @@ import { school } from './interface';
 
 export const School = ({ profile }: { profile: school[] }) => {
     return (
-        <div className="bg-red-300 border border-gray-400 p-4 rounded-md mb-5">
+        <div className="bg-red-300 p-4 shadow-md rounded-md mb-5">
             <h1 className="text-2xl font-bold">School</h1>
           {profile.map((school, index) => (
             <div key={index} className="mb-4 text-lg text-black flex">
@@ -12,7 +12,7 @@ export const School = ({ profile }: { profile: school[] }) => {
                   <p className="text-yellow-950">{school.degree}</p>
                   <p className="text-yellow-950">{school.date}</p>
                 </div>
-                <div className="bg-gray-200 border-gray-400 p-5 rounded-md">
+                <div className="bg-gray-200 border-gray-400 p-5 border border-gray-400 shadow-md rounded-md mb-5">
                   <p className="mt-2">{school.description}</p>
                 </div>
               {index < profile.length - 1 ? <div className="border-t border-blue-300 mt-4"></div> : <></>}

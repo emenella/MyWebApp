@@ -17,7 +17,7 @@ export interface DataPublic {
 
 export const Public = ({data}: { data: DataPublic }) => {
     return (
-        <div className="bg-gray-200 border border-gray-400 p-5">
+        <div className="flex flex-col bg-gray-200 border border-gray-400 p-5 w-3/4">
             <Profile profile={data.profile}></Profile>
             <School profile={data.school}></School>
             <Diploma diploma={data.diplomas}></Diploma>
