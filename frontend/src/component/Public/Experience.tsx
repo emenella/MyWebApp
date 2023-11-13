@@ -7,7 +7,9 @@ interface Props {
 export const Experience = ({ experiences }: Props) => {
     return (
         <div className="bg-green-800 p-4 shadow-md rounded-md mb-5">
-            <h1 className="text-2xl font-bold">Experience</h1>
+            <div className='w-full'>
+                <h1 className="text-2xl font-bold">Experience</h1>
+            </div>
             {experiences.map((experience, index) => (
                 <div key={index} className="items-center mt-2">
                     <div className="mr-2">
@@ -21,7 +23,6 @@ export const Experience = ({ experiences }: Props) => {
                     <div className="bg-gray-200 border border-gray-400 p-5 shadow-md rounded-md mb-5">
                         <p>{experience.description}</p>
                     </div>
-                    {index < experiences.length - 1 ? <div className="border-t border-red-300 mt-4"></div> : <></>}
                 </div>
             ))}
         </div>

@@ -73,8 +73,10 @@ export const Skill = ({ skills }: Props) => {
     return (
       <>
         <div className="flex flex-wrap">
-          <div className='w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2'>
+          <div className='w-full'>
             <h2 className="text-xl font-bold mb-2">Languages</h2>
+          </div>
+          <div className='w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2'>
             {languages.map((skill, index) => languageToJsx(skill, index))}
           </div>
           <div className='w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-2'>

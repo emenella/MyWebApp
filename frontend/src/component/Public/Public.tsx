@@ -2,6 +2,7 @@ import { Diploma } from "./Diploma";
 import { Experience } from "./Experience";
 import { profile, diploma, experience, project, skill, school } from "./interface";
 import { Profile } from "./Profile";
+import Project from "./Project";
 import { School } from "./School";
 import { Skill } from "./Skill";
 
@@ -22,6 +23,7 @@ export const Public = ({data}: { data: DataPublic }) => {
             <School profile={data.school}></School>
             <Diploma diploma={data.diplomas}></Diploma>
             <Experience experiences={data.experiences}></Experience>
+            <Project projects={data.projects}></Project>
             <Skill skills={data.skills}></Skill>
         </div>
         );
