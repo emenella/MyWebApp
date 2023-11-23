@@ -33,7 +33,7 @@ const AvatarFlip: React.FC<AvatarProps> = (props) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         style={{ position: 'relative' }}
-        className="rounded-full"
+        className="rounded-full shadow-md"
       >
         <Image
           src={isHover ? props.imageHover : props.image}

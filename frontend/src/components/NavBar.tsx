@@ -10,7 +10,6 @@ import {
     NavigationMenuViewport,
   } from "@/components/ui/navigation-menu"
 
-import { ModeToggle } from "@/components/ToggleTheme"
 import Link from "next/link"
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 
