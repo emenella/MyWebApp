@@ -15,7 +15,7 @@ import {
     HoverCardTrigger,
 } from "@/components/ui/hover-card";
 
-interface ListProps {
+export interface ListProps {
     className?: string
     title: string
     content: {
@@ -29,7 +29,7 @@ export const List: React.FC<ListProps> = (props) => {
 
     return (
         <div className={props.className}>
-            <Card className='w-full h-full'>
+            <Card>
                 <CardHeader>
                     <CardTitle>{props.title}</CardTitle>
                 </CardHeader>
@@ -42,7 +42,7 @@ export const List: React.FC<ListProps> = (props) => {
                                     <Image src={item.icon} alt={`Icon for ${item.title}`} height={50} width={50} />
                                 <div className="grid place-content-center">    
                                     <HoverCardContent>
-                                        <h2>{item.title}</h2>
+                                        <h2><strong>{item.title}</strong></h2>
                                         <p>{item.description}</p>
                                     </HoverCardContent>
                                 </div>

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 
-interface AvatarProps {
+export interface AvatarProps {
     image: string
     alt: string
     imageHover: string
@@ -10,7 +10,7 @@ interface AvatarProps {
     width : number
 }
 
-const AvatarFlip: React.FC<AvatarProps> = (props) => {
+export const AvatarFlip: React.FC<AvatarProps> = (props) => {
     const [isHover, setIsHover] = useState(false);
   
     const handleMouseEnter = () => {
@@ -47,5 +47,3 @@ const AvatarFlip: React.FC<AvatarProps> = (props) => {
       </div>
     );
   };
-
-export default AvatarFlip;
