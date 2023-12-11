@@ -14,14 +14,12 @@ export const SocialBadge = (props: SocialBadgeProps) => {
     return (
         <div className={props.className}>
             {props.links.map((link, index) => (
-                <div key={index}>
-                    <a href={link.url} className={badgeVariants({variant: "default"}) + " w-32 h-10"}>
+                    <a href={link.url} key={index} className={badgeVariants({variant: "default"}) + ""}>
                         <div className="flex flex-row items-center gap-2">
                             <Image src={link.icon} alt={`Icon for ${link.name}`} width={30} height={30} />
-                            {link.name}
+                            <span className="hidden sm:inline">{link.name}</span>
                         </div>
                     </a>
-                </div>
             ))}
         </div>
     )

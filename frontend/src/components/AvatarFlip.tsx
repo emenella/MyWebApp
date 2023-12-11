@@ -8,6 +8,7 @@ export interface AvatarProps {
     imageHover: string
     height : number
     width : number
+    className?: string
 }
 
 export const AvatarFlip: React.FC<AvatarProps> = (props) => {
@@ -25,15 +26,22 @@ export const AvatarFlip: React.FC<AvatarProps> = (props) => {
       transition: 'transform 0.3s',
       backfaceVisibility: 'hidden',
       height: `${props.height}px`, // Définissez la hauteur de l'image
-        width: `${props.width}px`, // Définissez la largeur de l'image
+      width: `${props.width}px`, // Définissez la largeur de l'image
+      objectFit: 'cover',
+    };
+
+    const containerStyle: React.CSSProperties = {
+      position: 'relative',
+      height: `${props.height}px`, // Définissez la hauteur de la div
+      width: `${props.width}px`, // Définissez la largeur de la div
     };
   
     return (
       <div
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        style={{ position: 'relative' }}
-        className="rounded-full shadow-md"
+        style={containerStyle}
+        className={"rounded-full overflow-hidden shadow-md " + props.className}
       >
         <Image
           src={isHover ? props.imageHover : props.image}

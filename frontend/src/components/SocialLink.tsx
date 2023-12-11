@@ -18,7 +18,7 @@ export const SocialLink = (props: SocialLinkProps) => {
                     <CardTitle>Contact me</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <SocialBadge links={props.links} className="flex flex-row gap-3 justify-start"/>
+                    <SocialBadge links={props.links} className="grid grid-cols-5 gap-4 justify-start justify-items-stretch items-stretch"/>
                 </CardContent>
             </Card>
         </div>

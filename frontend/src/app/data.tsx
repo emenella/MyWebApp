@@ -1,5 +1,5 @@
 import { SocialBadgeProps } from "@/components/SocialBadge";
-import { ProjetProps } from "@/components/Projet";
+import { ProjectProps } from "@/components/Project";
 
 const IconPath = "/icons/"
 const ImgProjectPath = "/img/projects/"
@@ -105,10 +105,11 @@ export const mail = {
     icon : IconPath + "mail.svg"
   }
   
-export const projects: ProjetProps[] = [
+export const projects: ProjectProps[] = [
     {
       title: "Portfolio",
       description: "My portfolio website, made with Next.js and Tailwind CSS.",
+      highlight: true,
       image: ImgProjectPath + "project-1.png",
       technologies: [
         {
@@ -134,6 +135,7 @@ export const projects: ProjetProps[] = [
     {
       title: "ft_transcendence",
       description: "A website for simple online multiplayer pong game.",
+      highlight: true,
       image: ImgProjectPath + "project-2.png",
       technologies: [
         {
@@ -153,6 +155,7 @@ export const projects: ProjetProps[] = [
     {
       title: "ft_irc",
       description: "A simple IRC server and client.",
+      highlight: true,
       image: ImgProjectPath + "project-3.png",
       technologies: [
         {
