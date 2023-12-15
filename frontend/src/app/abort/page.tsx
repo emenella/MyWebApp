@@ -31,7 +31,7 @@ const cvs : CVProps[] = [{
 
 export default function AbortPage () {
     return (
-        <div className='flex flex-row gap-5 pt-5'>
+        <div className='flex flex-col justify-items-center items-center pt-5 gap-5'>
             {cvs.map((cv, index) => (
                 <CV key={index} url={cv.url} width={cv.width} height={cv.height} className='w-1/3' />
             ))}
