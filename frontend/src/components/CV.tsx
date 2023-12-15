@@ -27,6 +27,19 @@ const style = {
     height: "100% !important"
 }
 
+function extractFileName(filePath: string): string {
+    const segments = filePath.split('/');
+  
+    const fileNameWithExtension = segments[segments.length - 1];
+  
+    const fileNameWithoutExtension = fileNameWithExtension.replace(/\..+$/, '');
+
+    const fileNameWithoutUnderscore = fileNameWithoutExtension.replace(/_/g, ' ');
+  
+    return fileNameWithoutUnderscore;
+  }
+  
+
 export const CV: React.FC<CVProps> = (props) => {
 
     const [numPages, setNumPages] = useState<number>();
@@ -36,7 +49,7 @@ export const CV: React.FC<CVProps> = (props) => {
     setNumPages(numPages);
   }
 
-    const name = props.url.split('/').pop().split('#')[0].split('?')[0].split('_')[1].split('.')[0];
+    const name = extractFileName(props.url);
 
     return (
         <div className={props.className}>
