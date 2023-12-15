@@ -9,18 +9,32 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
+import { CV, CVProps } from '../../components/CV';
 
-export default function ProjectPage () {
+const PDF = "/pdf/"
+
+const cvs : CVProps[] = [{
+    url: PDF + 'CV_blockchain.pdf',
+    width: 50,
+    height: 50,
+},
+{
+    url: PDF + 'CV_fullstack.pdf',
+    width: 50,
+    height: 50,
+},
+{
+    url: PDF + 'CV_Ingenieur.pdf',
+    width: 50,
+    height: 50,
+}]
+
+export default function AbortPage () {
     return (
-        <div>
-            <Card>
-                <CardHeader>
-                    <CardTitle>Project</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <ProjectList projets={projects} className="grid grid-cols-1 md:grid-cols-2 grid-flow-row gap-5" showImage={false}/>
-                </CardContent>
-            </Card>
+        <div className='flex flex-row gap-5 pt-5'>
+            {cvs.map((cv, index) => (
+                <CV key={index} url={cv.url} width={cv.width} height={cv.height} className='w-1/3' />
+            ))}
         </div>
     )
 }
