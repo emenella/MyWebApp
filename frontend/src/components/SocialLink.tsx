@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./ui/card"
 import { SocialBadge } from "./SocialBadge"
 
 export interface SocialLinkProps {
@@ -12,15 +12,14 @@ export interface SocialLinkProps {
 
 export const SocialLink = (props: SocialLinkProps) => {
     return (
-        <div className={props.className}>
-            <Card>
+            <Card className={props.className}>
                 <CardHeader>
-                    <CardTitle>Contact me</CardTitle>
                 </CardHeader>
-                <CardContent>
-                    <SocialBadge links={props.links} className="grid grid-cols-5 gap-4 justify-start justify-items-stretch items-stretch"/>
+                <CardContent className="grid place-content-center">
+                    <SocialBadge links={props.links} className="grid grid-cols-5 gap-4 max-w-xl" responsive="hidden sm:inline"/>
                 </CardContent>
+                <CardFooter>
+                </CardFooter>
             </Card>
-        </div>
     )
 }

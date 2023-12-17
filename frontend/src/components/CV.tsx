@@ -1,5 +1,5 @@
 'use client'
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 import {
     Card,
@@ -58,11 +58,9 @@ export const CV: React.FC<CVProps> = (props) => {
                     <CardTitle>{name}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <div className="flex flex-row justify-start">
-                            <Document file={props.url} loading={<p>Please wait!</p>} onLoadSuccess={onDocumentLoadSuccess}>
-                                <Page pageNumber={pageNumber} renderAnnotationLayer={false} renderTextLayer={false} />
-                            </Document>
-                    </div>
+                    <Document file={props.url} loading={<p>Please wait!</p>} onLoadSuccess={onDocumentLoadSuccess}>
+                        <Page pageNumber={pageNumber} renderAnnotationLayer={false} renderTextLayer={false} />
+                    </Document>
                 </CardContent>
             </Card>
         </div>
