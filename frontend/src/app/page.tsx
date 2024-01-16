@@ -1,3 +1,4 @@
+'use client'
 import { AvatarFlip } from "../components/AvatarFlip";
 import { List } from "../components/List";
 import { SocialBadge } from "../components/SocialBadge";
@@ -6,6 +7,7 @@ import { ProjectList } from "../components/Project";
 import { mail, socialLinks, skills, projects } from "./data";
 
 export default function Home() {
+
   return (
     <div className="flex flex-col gap-5 p-5 md:p-10 lg:p-16">
       <div className="md:flex md:justify-center text-center gap-5">
@@ -18,10 +20,10 @@ export default function Home() {
           className="mx-auto max-w-full md:mx-0 md:min-w-[300px] md:min-h-[300px]"
         />
         <div className="flex flex-col items-center place-content-center gap-5">
-          <h1 className="text-2xl font-bold text-green-300 bg-blue-900 shadow-xl p-3 md:p-0">
+          <h1 className="text-2xl font-bold text-green-11 bg-blue-1 shadow-xl p-3 md:p-0">
             Erwan &quot;Emenella&quot; Menella
           </h1>
-          <p className="text-lg text-red-200 bg-blue-900 shadow-xl p-3 md:p-0">
+          <p className="text-lg shadow-xl text-red-11 bg-blue-1 p-3 md:p-0">
             Innovative coder from Arles, inspired by Van Gogh, shaping a new vision of the digital
             future.
           </p>

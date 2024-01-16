@@ -37,11 +37,11 @@ const NavBar = (props: NavBarProps) => {
                                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>Abort</NavigationMenuLink>
                             </Link>
                     </NavigationMenuItem>
-                    <NavigationMenuItem>
+                    {/* <NavigationMenuItem>
                             <Link href="/contact" legacyBehavior passHref>
                                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>Contact</NavigationMenuLink>
                             </Link>
-                    </NavigationMenuItem>
+                    </NavigationMenuItem> */}
                 </NavigationMenuList>
             </NavigationMenu>
         </div>

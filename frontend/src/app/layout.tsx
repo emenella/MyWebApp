@@ -4,6 +4,7 @@ import NavBar from '@/components/NavBar'
 import './globals.css'
 import { ThemeProvider } from "@/components/theme-provider"
 import { ToggleTheme } from '../components/ToggleTheme'
+import SwitchLang from '../components/SwitchLang'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,6 +24,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <div className="flex flex-row border-b p-5 gap-x-5 justify-center">
             <NavBar/>
+            <SwitchLang/>
             <ToggleTheme/>
           </div>
           <div className=''>
