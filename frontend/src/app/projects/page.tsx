@@ -12,7 +12,7 @@ import {
 
 export default function ProjectPage () {
     return (
-        <div>
+        <div className='pt-5'>
             <Card>
                 <CardHeader>
                     <CardTitle>Project</CardTitle>

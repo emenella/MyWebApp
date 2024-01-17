@@ -17,6 +17,10 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 
+import { Toaster } from "@/components/ui/toaster"
+import { useToast } from "@/components/ui/use-toast"
+
+
 import {
     Card,
     CardContent,
@@ -42,12 +46,29 @@ type ValidationSchema = z.infer<typeof formSchema>;
 
 export const FormComposant: React.FC = () => {
 
+    const { toast } = useToast();
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
       })
 
     const onSubmit: SubmitHandler<ValidationSchema> = (value) => {
         console.log(value)
+        toast({
+            title: "Test Form",
+            description :  <>
+                <h2 className="font-bold">Full Name :</h2>
+                <p>{value.fullname}</p>
+                <h2 className="font-bold">Email :</h2>
+                <p>{value.email}</p>
+                <h2 className="font-bold">Phone :</h2>
+                <p>{value.phone}</p>
+                <h2 className="font-bold">Compagny :</h2>
+                <p>{value.compagny}</p>
+                <h2 className="font-bold">Message :</h2>
+                <p>{value.message}</p>
+            </>
+        });
     }
 
     return (
@@ -116,6 +137,7 @@ export const FormComposant: React.FC = () => {
 
                 <Button type="submit">Submit</Button>
             </form>
+            <Toaster />
         </Form>
     )
 }
