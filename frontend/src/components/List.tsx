@@ -28,31 +28,29 @@ export interface ListProps {
 export const List: React.FC<ListProps> = (props) => {
 
     return (
-        <div className={props.className}>
-            <Card>
-                <CardHeader>
-                    <CardTitle>{props.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
+        <Card className={props.className}>
+            <CardHeader>
+                <CardTitle>{props.title}</CardTitle>
+            </CardHeader>
+            <CardContent>
                 <div className="flex flex-row gap-5 justify-start">
                     {props.content.map((item, index) => (
                         <div key={index} className="w-[50px] h-[50px]">
                             <HoverCard>
-                            <HoverCardTrigger>
+                                <HoverCardTrigger>
                                     <Image src={item.icon} alt={`Icon for ${item.title}`} height={50} width={50} />
-                                <div className="grid place-content-center">    
-                                    <HoverCardContent>
-                                        <h2><strong>{item.title}</strong></h2>
-                                        <p>{item.description}</p>
-                                    </HoverCardContent>
-                                </div>
-                            </HoverCardTrigger>
+                                    <div className="grid place-content-center">    
+                                        <HoverCardContent>
+                                            <h2><strong>{item.title}</strong></h2>
+                                            <p>{item.description}</p>
+                                        </HoverCardContent>
+                                    </div>
+                                </HoverCardTrigger>
                             </HoverCard>
                         </div>
                     ))}
                 </div>
-                </CardContent>
-            </Card>
-        </div>
+            </CardContent>
+        </Card>
     );
 }

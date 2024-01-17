@@ -42,7 +42,7 @@ const BadgeTechnologies: React.FC<TechnologiesProps> = (props) => {
                     <Badge variant="default" className='h-auto w-30'>
                         <div className="flex items-center gap-2">
                             <Image src={technology.icon} alt={`Icon for ${technology.name}`} width={20} height={20} />
-                            <span className='hidden sm:inline'>{technology.name}</span>
+                            <span className='hidden xl:inline'>{technology.name}</span>
                         </div>
                     </Badge>
                 </div>
@@ -51,9 +51,9 @@ const BadgeTechnologies: React.FC<TechnologiesProps> = (props) => {
     );
 }
 
-export const Project: React.FC<{ projet: ProjectProps, showImage?: boolean }> = (props) => {
+export const Project: React.FC<{ projet: ProjectProps, showImage?: boolean, className?: string }> = (props) => {
     return (
-            <Card>
+            <Card className={props.className}>
                 <CardHeader>
                     <CardTitle>{props.projet.title}</CardTitle>
                 </CardHeader>
@@ -64,7 +64,7 @@ export const Project: React.FC<{ projet: ProjectProps, showImage?: boolean }> = 
                     </div>
                 </CardContent>
                 <CardFooter >
-                    <BadgeTechnologies className="grid grid-flow-col justify-end gap-3" technologies={props.projet.technologies.map((technology) => ({ name: technology.name, icon: technology.icon }))} />
+                    <BadgeTechnologies className="grid grid-flow-col justify-end gap-3 " technologies={props.projet.technologies.map((technology) => ({ name: technology.name, icon: technology.icon }))} />
                 </CardFooter>
             </Card>
     );
@@ -74,7 +74,7 @@ export const ProjectList: React.FC<{ projets: ProjectProps[], className?: string
     return (
         <div className={props.className}>
             {props.projets.filter(projet => props.highlight ? projet.highlight : true).map((projet, index) => (
-                <Project key={index} projet={projet} showImage={props.showImage} />
+                <Project key={index} projet={projet} showImage={props.showImage} className='shadow-xl' />
             ))}
         </div>
     );

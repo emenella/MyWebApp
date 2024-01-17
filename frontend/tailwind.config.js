@@ -1,4 +1,8 @@
 /** @type {import('tailwindcss').Config} */
+const { createPlugin } = require("windy-radix-palette");
+
+const colors = createPlugin();
+
 module.exports = {
   darkMode: ["class"],
   content: [
@@ -72,5 +76,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-}
+  plugins: [require("tailwindcss-animate"), colors.plugin]
+};
