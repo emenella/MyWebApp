@@ -16,7 +16,7 @@ interface ToggleThemeProps {
   className?: string
 }
 
-export function ToggleTheme(props: ToggleThemeProps) {
+export default function ToggleTheme(props: ToggleThemeProps) {
   const { setTheme } = useTheme()
 
   return (

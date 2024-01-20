@@ -12,6 +12,8 @@ import {
 
 import Link from "next/link"
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
+import SwitchLang  from '@/components/SwitchLang';
+import ToggleTheme from '@/components/ToggleTheme';
 
 interface NavBarProps {
     className?: string
@@ -20,7 +22,7 @@ interface NavBarProps {
 const NavBar = (props: NavBarProps) => {
     return (
         <div className={props.className}>
-            <NavigationMenu>
+            <NavigationMenu className="gap-5">
                 <NavigationMenuList>
                     <NavigationMenuItem>
                         <Link href="/" legacyBehavior passHref>
@@ -41,6 +43,12 @@ const NavBar = (props: NavBarProps) => {
                             <Link href="/contact" legacyBehavior passHref>
                                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>Contact</NavigationMenuLink>
                             </Link>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <SwitchLang/>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <ToggleTheme/>
                     </NavigationMenuItem>
                 </NavigationMenuList>
             </NavigationMenu>

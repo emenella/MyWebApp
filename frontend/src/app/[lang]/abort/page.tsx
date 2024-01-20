@@ -1,5 +1,5 @@
 import React from 'react';
-import { CV, CVProps } from '../../components/CV';
+import { CV, CVProps } from '@/components/CV';
 
 const PDF = "/pdf/"
 

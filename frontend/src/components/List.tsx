@@ -1,5 +1,7 @@
+"use client"
 import React from 'react';
 import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
 import {
     Card,
     CardContent,
@@ -17,6 +19,7 @@ import {
 
 export interface ListProps {
     className?: string
+    id?: number
     title: string
     content: {
         title: string
@@ -26,6 +29,8 @@ export interface ListProps {
 }
 
 export const List: React.FC<ListProps> = (props) => {
+
+    const { t } = useTranslation();
 
     return (
         <Card className={props.className}>
@@ -42,7 +47,7 @@ export const List: React.FC<ListProps> = (props) => {
                                     <div className="grid place-content-center">    
                                         <HoverCardContent>
                                             <h2><strong>{item.title}</strong></h2>
-                                            <p>{item.description}</p>
+                                            <p>{t(`homepage.skills.${props.id}.description`)}</p>
                                         </HoverCardContent>
                                     </div>
                                 </HoverCardTrigger>

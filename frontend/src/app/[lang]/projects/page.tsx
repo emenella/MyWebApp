@@ -9,8 +9,17 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
+import TranslationsProvider from '@/components/TranslationsProvider';
 
-export default function ProjectPage () {
+interface ProjectProps {
+    params: {
+        lang: string
+    }
+}
+const i18nNamespaces = ['common'];
+
+export default function ProjectPage (props: ProjectProps) {
+    
     return (
         <div className='pt-5'>
             <Card>
@@ -22,5 +31,5 @@ export default function ProjectPage () {
                 </CardContent>
             </Card>
         </div>
-    )
-}
+        )
+    }

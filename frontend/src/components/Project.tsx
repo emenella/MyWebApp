@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import Image from 'next/image';
 import {
@@ -8,7 +9,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-
+import { useTranslation } from 'react-i18next';
 import { Badge } from './ui/badge';
 
 
@@ -35,6 +36,7 @@ export interface ProjectProps {
 }
 
 const BadgeTechnologies: React.FC<TechnologiesProps> = (props) => {
+
     return (
         <div className={props.className}>
             {props.technologies.map((technology, index) => (
@@ -51,7 +53,10 @@ const BadgeTechnologies: React.FC<TechnologiesProps> = (props) => {
     );
 }
 
-export const Project: React.FC<{ projet: ProjectProps, showImage?: boolean, className?: string }> = (props) => {
+export const Project: React.FC<{ projet: ProjectProps, showImage?: boolean, className?: string, id?: number }> = (props) => {
+
+    const { t } = useTranslation();
+    
     return (
             <Card className={props.className}>
                 <CardHeader>
@@ -60,7 +65,7 @@ export const Project: React.FC<{ projet: ProjectProps, showImage?: boolean, clas
                 <CardContent className='h-max'>
                     <div className='flex flex-col gap-5'>
                         {props.showImage ? <Image src={props.projet.image} alt={`Icon for ${props.projet.title}`} height={50} width={50} /> : null}
-                        <CardDescription>{props.projet.description}</CardDescription>
+                        <CardDescription>{t(`homepage.projects.${props.id}.description`)}</CardDescription>
                     </div>
                 </CardContent>
                 <CardFooter >
@@ -74,7 +79,7 @@ export const ProjectList: React.FC<{ projets: ProjectProps[], className?: string
     return (
         <div className={props.className}>
             {props.projets.filter(projet => props.highlight ? projet.highlight : true).map((projet, index) => (
-                <Project key={index} projet={projet} showImage={props.showImage} className='shadow-xl' />
+                <Project key={index} id={index} projet={projet} showImage={props.showImage} className='shadow-xl' />
             ))}
         </div>
     );

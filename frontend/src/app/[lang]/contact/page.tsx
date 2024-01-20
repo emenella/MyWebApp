@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormCard } from '../../components/Form';
+import { FormCard } from '@/components/Form';
 
 export default function ContactPage() {
 
