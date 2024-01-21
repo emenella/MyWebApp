@@ -4,7 +4,6 @@ import { Switch } from "@/components/ui/switch"
 import { ReactCountryFlag } from "react-country-flag"
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
-import { useTranslation } from 'react-i18next';
 import i18nConfig from '@/i18nConfig';
 
 const Languages = {
@@ -15,8 +14,7 @@ const Languages = {
 export default function SwitchLang() {
 
     const [isLoading, setIsLoading] = useState(true)
-    const { i18n } = useTranslation();
-    const currentLocale = i18n.language;
+    const [currentLocale, setCurrentLocale] = useState<string>("");
     const router = useRouter();
     const currentPathname = usePathname();
 
@@ -27,6 +25,10 @@ export default function SwitchLang() {
         date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
         const expires = '; expires=' + date.toUTCString();
         document.cookie = `NEXT_LOCALE=${newLocale};expires=${expires};path=/`;
+        if (window !== undefined)
+        {
+            localStorage.setItem("locale", newLocale)
+        }
 
         if (
         currentLocale === i18nConfig.defaultLocale &&
@@ -43,6 +45,12 @@ export default function SwitchLang() {
     };
 
     useEffect(() => {
+        const newLocale = currentPathname.split('/').slice(1).at(0) as string;
+        if (window !== undefined)
+        {
+            localStorage.setItem("language", newLocale)
+        }
+        setCurrentLocale(newLocale)
         setIsLoading(false);
     }, []);
 
