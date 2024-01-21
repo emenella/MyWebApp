@@ -34,7 +34,6 @@
     "react-hook-form": "^7.49.0",
     "react-i18next": "^14.0.0",
     "react-pdf": "^7.6.0",
-    "sharp": "^0.33.2",
     "tailwind-merge": "^2.0.0",
     "tailwindcss-animate": "^1.0.7",
     "windy-radix-palette": "^2.0.0-beta.7",
