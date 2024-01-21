@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import TranslationsProvider from '@/components/TranslationsProvider';
 import i18nConfig from '@/i18nConfig';
 import { dir } from 'i18next';
+import initTranslations from '@/app/i18n';
 
 interface RootLayoutProps {
   children: React.ReactNode,
@@ -28,11 +29,13 @@ export function generateStaticParams() {
 
 export default async function RootLayout(props: RootLayoutProps) {
 
+  const { resources } = await initTranslations(props.params.locale, i18nNamespaces);
+
   return (
     <html lang={props.params.locale} dir={dir(props.params.locale)}>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <TranslationsProvider namespaces={i18nNamespaces} locale={props.params.locale}>
+          <TranslationsProvider namespaces={i18nNamespaces} locale={props.params.locale} resources={resources}>
           <div className="flex flex-row border-b p-5 gap-x-5 justify-center">
             <NavBar/>
           </div>

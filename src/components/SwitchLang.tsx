@@ -14,10 +14,10 @@ const Languages = {
 
 export default function SwitchLang() {
     
-    const { i18n } = useTranslation();
-    const [currentLocale, setCurrentLocale] = useState<string>(i18n.language);
+    // const { i18n } = useTranslation();
     const router = useRouter();
     const currentPathname = usePathname();
+    const [currentLocale, setCurrentLocale] = useState<string>(currentPathname.split('/')[1] as string);
 
     const handleLang = () => {
         const newLocale = currentLocale === Languages.EN ? Languages.FR : Languages.EN;
@@ -27,7 +27,11 @@ export default function SwitchLang() {
         const expires = '; expires=' + date.toUTCString();
         document.cookie = `NEXT_LOCALE=${newLocale};expires=${expires};path=/`;
 
-        setCurrentLocale(newLocale);
+        if (window !== undefined)
+        {
+            localStorage.setItem("locale", newLocale)
+            setCurrentLocale(newLocale);
+        }
 
         if (
         currentLocale === i18nConfig.defaultLocale &&

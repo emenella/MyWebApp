@@ -18,11 +18,11 @@ const i18nNamespaces = ['common'];
 
 export default async function Home(props: HomeProps) {
 
-  const { t } = await initTranslations(props.params.locale, i18nNamespaces);
+  const { t, resources } = await initTranslations(props.params.locale, i18nNamespaces);
 
   return (
     <div className="flex flex-col gap-5 p-5 md:p-10 lg:p-16">
-      <TranslationsProvider namespaces={i18nNamespaces} locale={props.params.locale}>
+      <TranslationsProvider namespaces={i18nNamespaces} locale={props.params.locale} resources={resources}>
         <div className="md:flex md:justify-center text-center gap-5">
           <AvatarFlip
             image="/emenella.jpg"
