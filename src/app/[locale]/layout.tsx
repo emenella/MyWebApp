@@ -4,11 +4,13 @@ import NavBar from '@/components/NavBar'
 import './globals.css'
 import { ThemeProvider } from "@/components/theme-provider"
 import TranslationsProvider from '@/components/TranslationsProvider';
+import i18nConfig from '@/i18nConfig';
+import { dir } from 'i18next';
 
 interface RootLayoutProps {
   children: React.ReactNode,
   params: {
-    lang: string
+    locale: string
   }
 }
 
@@ -20,13 +22,17 @@ export const metadata: Metadata = {
 }
 const i18nNamespaces = ['common'];
 
+export function generateStaticParams() {
+  return i18nConfig.locales.map(locale => ({ locale }));
+}
+
 export default async function RootLayout(props: RootLayoutProps) {
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={props.params.locale} dir={dir(props.params.locale)}>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <TranslationsProvider namespaces={i18nNamespaces} locale={props.params.lang}>
+          <TranslationsProvider namespaces={i18nNamespaces} locale={props.params.locale}>
           <div className="flex flex-row border-b p-5 gap-x-5 justify-center">
             <NavBar/>
           </div>

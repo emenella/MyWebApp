@@ -4,6 +4,9 @@ const nextConfig = {
         config.resolve.alias.canvas = false;
         return config;
     },
+    images: {
+        minimumCacheTTL: 60,
+    },
 }
 
 module.exports = nextConfig
