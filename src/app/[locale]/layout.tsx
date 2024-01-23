@@ -8,6 +8,9 @@ import i18nConfig from '@/i18nConfig';
 import { dir } from 'i18next';
 import initTranslations from '@/app/i18n';
 
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
 interface RootLayoutProps {
   children: React.ReactNode,
   params: {
@@ -41,6 +44,8 @@ export default async function RootLayout(props: RootLayoutProps) {
           </div>
           <div className=''>
             {props.children}
+            <Analytics/>
+            <SpeedInsights/>
           </div>
           </TranslationsProvider>
         </ThemeProvider>
