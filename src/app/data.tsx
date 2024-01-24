@@ -8,7 +8,7 @@ const Backend = [
     {
       title: "Node.js",
       description: "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine.",
-      icon: IconPath + "nodedotjs.svg"
+      icon: IconPath + "nodedotjs_colored.svg"
     },
     {
       title: "Bun",
@@ -18,7 +18,7 @@ const Backend = [
     {
       title: "Nest.js",
       description: "A progressive Node.js framework for building efficient, reliable and scalable server-side applications.",
-      icon: IconPath + "nestjs.svg"
+      icon: IconPath + "nestjs_colored.svg"
     },
     {
       title: "Fastify",
@@ -36,7 +36,7 @@ const Frontend = [
     {
       title: "React",
       description: "A JavaScript library for building user interfaces.",
-      icon: IconPath + "react.svg"
+      icon: IconPath + "react_colored.svg"
     },
     {
       title: "Next.js",
@@ -46,12 +46,12 @@ const Frontend = [
     {
       title: "Tailwind CSS",
       description: "A utility-first CSS framework for rapidly building custom designs.",
-      icon: IconPath + "tailwindcss.svg"
+      icon: IconPath + "tailwindcss_colored.svg"
     },
     {
       title: "Framer Motion",
       description: "A production-ready motion library for React.",
-      icon: IconPath + "framer.svg"
+      icon: IconPath + "framer_colored.svg"
     },
   ];
   
@@ -90,12 +90,12 @@ export const socialLinks: SocialBadgeProps["links"] = [
     {
       name: "LinkedIn",
       url: "https://linkedin.com/in/emenella",
-      icon: IconPath + "linkedin.svg"
+      icon: IconPath + "linkedin_colored.svg"
     },
     {
       name: "Malt",
       url: "https://malt.fr/profile/emenella",
-      icon: IconPath + "malt.svg"
+      icon: IconPath + "malt_colored.svg"
     },
   ]
   
@@ -114,7 +114,7 @@ export const projects: ProjectProps[] = [
       technologies: [
         {
           name: "React",
-          icon: IconPath + "react.svg"
+          icon: IconPath + "react_colored.svg"
         },
         {
           name: "Next.js",
@@ -122,7 +122,7 @@ export const projects: ProjectProps[] = [
         },
         {
           name: "Tailwind CSS",
-          icon: IconPath + "tailwindcss.svg"
+          icon: IconPath + "tailwindcss_colored.svg"
         }
       ],
       links:
@@ -140,11 +140,11 @@ export const projects: ProjectProps[] = [
       technologies: [
         {
           name: "React",
-          icon: IconPath + "react.svg"
+          icon: IconPath + "react_colored.svg"
         },
         {
           name: "Nest.js",
-          icon: IconPath + "nestjs.svg"
+          icon: IconPath + "nestjs_colored.svg"
         },
         {
           name: "PostgreSQL",
@@ -160,7 +160,7 @@ export const projects: ProjectProps[] = [
       technologies: [
         {
           name: "C++",
-          icon: IconPath + "cplusplus.svg"
+          icon: IconPath + "cplusplus_colored.svg"
         },
       ],
     }

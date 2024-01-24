@@ -16,6 +16,7 @@ import {
     HoverCardContent,
     HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import { useTheme } from 'next-themes';
 
 export interface ListProps {
     className?: string
@@ -31,6 +32,16 @@ export interface ListProps {
 export const List: React.FC<ListProps> = (props) => {
 
     const { t } = useTranslation();
+    const { theme } = useTheme();
+
+    const applyInverse = (path: string) => {
+        if (!path.includes("colored")) {
+            if (theme === "dark") {
+                return "invert-icon";
+            }
+        }
+        return null;
+    }
 
     return (
         <Card className={props.className}>
@@ -43,7 +54,7 @@ export const List: React.FC<ListProps> = (props) => {
                         <div key={index} className="w-[50px] h-[50px]">
                             <HoverCard>
                                 <HoverCardTrigger>
-                                    <Image src={item.icon} alt={`Icon for ${item.title}`} height={50} width={50} />
+                                    <Image src={item.icon} alt={`Icon for ${item.title}`} height={50} width={50} className={`${applyInverse(item.icon)}`} />
                                     <div className="grid place-content-center">    
                                         <HoverCardContent>
                                             <h2><strong>{item.title}</strong></h2>

@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/card";
 import { useTranslation } from 'react-i18next';
 import { Badge } from './ui/badge';
+import { useTheme } from 'next-themes';
 
 
 interface TechnologiesProps {
@@ -37,13 +38,24 @@ export interface ProjectProps {
 
 const BadgeTechnologies: React.FC<TechnologiesProps> = (props) => {
 
+    const { theme } = useTheme();
+
+    const applyInverse = (path: string) => {
+        if (!path.includes("colored")) {
+            if (!(theme === "dark")) {
+                return "invert-icon";
+            }
+        }
+        return null;
+    }
+
     return (
         <div className={props.className}>
             {props.technologies.map((technology, index) => (
                 <div key={index}>
                     <Badge variant="default" className='h-auto w-30'>
                         <div className="flex items-center gap-2">
-                            <Image src={technology.icon} alt={`Icon for ${technology.name}`} width={20} height={20} />
+                            <Image src={technology.icon} alt={`Icon for ${technology.name}`} width={20} height={20} className={`${applyInverse(technology.icon)}`} />
                             <span className='hidden xl:inline'>{technology.name}</span>
                         </div>
                     </Badge>
