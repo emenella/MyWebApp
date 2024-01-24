@@ -15,11 +15,11 @@ export interface SocialBadgeProps {
 
 export const SocialBadge = (props: SocialBadgeProps) => {
 
-    const { theme } = useTheme();
+    const { resolvedTheme } = useTheme();
 
     const applyInverse = (path: string) => {
         if (!path.includes("colored")) {
-            if (!(theme === "dark")) {
+            if (!(resolvedTheme === "dark")) {
                 return "invert-icon";
             }
         }

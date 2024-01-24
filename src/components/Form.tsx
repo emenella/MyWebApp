@@ -53,7 +53,6 @@ export const FormComposant: React.FC = () => {
       })
 
     const onSubmit: SubmitHandler<ValidationSchema> = (value) => {
-        console.log(value)
         toast({
             title: "Test Form",
             description :  <>

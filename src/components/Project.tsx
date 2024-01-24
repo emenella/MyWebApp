@@ -38,11 +38,11 @@ export interface ProjectProps {
 
 const BadgeTechnologies: React.FC<TechnologiesProps> = (props) => {
 
-    const { theme } = useTheme();
+    const { resolvedTheme } = useTheme();
 
     const applyInverse = (path: string) => {
         if (!path.includes("colored")) {
-            if (!(theme === "dark")) {
+            if (!(resolvedTheme === "dark")) {
                 return "invert-icon";
             }
         }
