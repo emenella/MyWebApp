@@ -35,22 +35,18 @@ const Backend = [
 const Frontend = [
     {
       title: "React",
-      description: "A JavaScript library for building user interfaces.",
       icon: IconPath + "react.svg"
     },
     {
       title: "Next.js",
-      description: "The React Framework for Production.",
       icon: IconPath + "nextdotjs.svg"
     },
     {
-      title: "Tailwind CSS",
-      description: "A utility-first CSS framework for rapidly building custom designs.",
+      title: "Tailwind",
       icon: IconPath + "tailwindcss.svg"
     },
     {
-      title: "Framer Motion",
-      description: "A production-ready motion library for React.",
+      title: "Framer",
       icon: IconPath + "framer.svg"
     },
   ];

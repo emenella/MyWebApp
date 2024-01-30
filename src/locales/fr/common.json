@@ -2,9 +2,9 @@
     "metadata": {
         "title" : "Portfolio Emenella",
         "description" : "Découvrez le portfolio d'emenella, un développeus web fullstack passionnée, spécialisée dans la création d'applications web modernes. Explorez mes projets, mes compétences et mon expérience professionnelle mis en œuvre avec Next.js, React, Node.js et Fastify."
-      },
-      "homepage": {
-        "description" : "Codeur innovant originaire d'Arles, inspiré par Van Gogh, qui façonne une nouvelle vision de l'avenir numérique.",
+    },
+    "homepage": {
+        "description" : "Un développeur innovant originaire d'Arles, inspiré par Van Gogh, qui façonne une nouvelle vision de l'avenir numérique.",
         "skills": [
             {
                 "title": "Node.js",
@@ -12,7 +12,7 @@
             },
             {
                 "title": "Bun",
-                "description": "Bun est un routeur HTTP simple et rapide pour Node.js."
+                "description": "Bun est un runtime JavaScript, un gestionnaire de packages et un bundler de lanceurs."
             },
             {
                 "title": "Nest.js",
@@ -24,7 +24,7 @@
             },
             {
                 "title": "Express",
-                "description": "Framework web minimaliste, rapide et sans opinion pour Node.js"
+                "description": "Express.js est un framework pour construire des applications web basées sur Node.js."
             },
             {
                 "title": "React",
@@ -33,25 +33,25 @@
             },
             {
                 "title": "Next.js",
-                "description": "Le framework React pour la production."
+                "description": "Next.js est un framework gratuit et open source s'appuyant sur la bibliothèque JavaScript React et sur la technologie Node.js."
             },
             {
                 "title": "Tailwind CSS",
-                "description": "Un cadre CSS à vocation utilitaire permettant de créer rapidement des designs personnalisés."
+                "description": "Tailwind CSS est un framework CSS open source."
             },
             {
                 "title": "Framer Motion",
-                "description": "Une bibliothèque d'animation prête à la production pour React."
+                "description": "Une bibliothèque d'animation JavaScript simple et puissante."
             },
             {
                 "title": "AWS",
-                "description": "Amazon Web Services offre des services d'informatique en nuage fiables, évolutifs et peu coûteux."
+                "description": "Amazon Web Services offre des services d'informatique en cloud fiables, évolutifs et peu coûteux."
             }
         ],
         "projects": [
             {
                 "title": "Portfolio",
-                "description": "Mon site portfolio, réalisé avec Next.js et Tailwind CSS."
+                "description": "Mon site portfolio, réalisé avec Next.js et Shadcn/Tailwind CSS."
             },
             {
                 "title": "ft_transcendence",

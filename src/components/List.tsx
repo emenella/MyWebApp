@@ -44,6 +44,7 @@ export const List: React.FC<ListProps> = (props) => {
                             <HoverCard>
                                 <HoverCardTrigger>
                                     <Image src={item.icon} alt={`Icon for ${item.title}`} height={50} width={50} />
+                                    <h2>{item.title}</h2>
                                     <div className="grid place-content-center">    
                                         <HoverCardContent>
                                             <h2><strong>{item.title}</strong></h2>

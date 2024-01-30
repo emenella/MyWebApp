@@ -35,8 +35,8 @@ const NavBar = (props: NavBarProps) => {
                             </Link>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                            <Link href="/abort" legacyBehavior passHref>
-                                <NavigationMenuLink className={navigationMenuTriggerStyle()}>Abort</NavigationMenuLink>
+                            <Link href="/about" legacyBehavior passHref>
+                                <NavigationMenuLink className={navigationMenuTriggerStyle()}>About</NavigationMenuLink>
                             </Link>
                     </NavigationMenuItem>
                     <NavigationMenuItem>

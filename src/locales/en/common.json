@@ -4,7 +4,7 @@
         "description": "Discover the portfolio of emenella, a passionate fullstack web developer specializing in the creation of modern web applications. Explore my projects, skills and professional experience implemented with Next.js, React, Node.js and Fastify."
     },
     "homepage": {
-        "description" : "Innovative coder from Arles, inspired by Van Gogh, shaping a new vision of the digital future.",
+        "description" : "Innovative developer from Arles, inspired by Van Gogh, shaping a new vision of the digital future.",
         "skills": [
             {
                 "title": "Node.js",
@@ -12,7 +12,7 @@
             },
             {
                 "title": "Bun",
-                "description": "Bun is a simple and fast HTTP router for Node.js."
+                "description": "Bun is a JavaScript runtime, package manager and launcher bundler."
             },
             {
                 "title": "Nest.js",
@@ -24,7 +24,7 @@
             },
             {
                 "title": "Express",
-                "description": "Fast, unopinionated, minimalist web framework for Node.js"
+                "description": "Express.js is a framework for building Node.js-based web applications."
             },
             {
                 "title": "React",
@@ -33,15 +33,15 @@
             },
             {
                 "title": "Next.js",
-                "description": "The React Framework for Production."
+                "description": "Next.js is a free, open-source framework based on the React JavaScript library and Node.js technology."
             },
             {
-                "title": "Tailwind CSS",
+                "title": "Tailwind",
                 "description": "A utility-first CSS framework for rapidly building custom designs."
             },
             {
-                "title": "Framer Motion",
-                "description": "A production-ready motion library for React."
+                "title": "Framer",
+                "description": "A simple yet powerful JavaScript animation library."
             },
             {
                 "title": "AWS",

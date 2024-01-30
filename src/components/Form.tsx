@@ -8,13 +8,13 @@ import * as z from "zod"
 
 import { Button } from "@/components/ui/button"
 import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
+    Form,
+    FormControl,
+    FormDescription,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
 } from "@/components/ui/form"
 
 import { Toaster } from "@/components/ui/toaster"
@@ -38,7 +38,7 @@ const formSchema = z.object({
     fullname: z.string().min(2, { message: "Please enter your full name" }),
     email: z.string().email({ message: "Please enter a valid email" }),
     phone: z.string().optional(),
-    compagny: z.string().optional(),
+    company: z.string().optional(),
     message: z.string().min(10, { message: "Please enter a message of at least 10 characters" }),
 })
 
@@ -50,7 +50,7 @@ export const FormComposant: React.FC = () => {
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
-      })
+    })
 
     const onSubmit: SubmitHandler<ValidationSchema> = (value) => {
         console.log(value)
@@ -64,7 +64,7 @@ export const FormComposant: React.FC = () => {
                 <h2 className="font-bold">Phone :</h2>
                 <p>{value.phone}</p>
                 <h2 className="font-bold">Compagny :</h2>
-                <p>{value.compagny}</p>
+                <p>{value.company}</p>
                 <h2 className="font-bold">Message :</h2>
                 <p>{value.message}</p>
             </>
@@ -110,15 +110,15 @@ export const FormComposant: React.FC = () => {
                                 <FormMessage />
                             </FormItem>
                 )}}/>
-                <FormField control={form.control} name="compagny"
+                <FormField control={form.control} name="company"
                     render={({field}) => {
                         return (
                             <FormItem>
-                                <FormLabel>Compagny</FormLabel>
+                                <FormLabel>Company</FormLabel>
                                 <FormControl>
-                                    <Input type="text" placeholder="compagny" {...field} />
+                                    <Input type="text" placeholder="company" {...field} />
                                 </FormControl>
-                                <FormDescription>Enter your compagny</FormDescription>
+                                <FormDescription>Enter your company</FormDescription>
                                 <FormMessage />
                             </FormItem>
                         )}}/>
@@ -134,7 +134,6 @@ export const FormComposant: React.FC = () => {
                                 <FormMessage />
                             </FormItem>
                         )}}/>
-
                 <Button type="submit">Submit</Button>
             </form>
             <Toaster />
