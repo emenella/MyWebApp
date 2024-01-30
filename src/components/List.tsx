@@ -16,6 +16,7 @@ import {
     HoverCardContent,
     HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import { useTheme } from 'next-themes';
 
 export interface ListProps {
     className?: string
@@ -23,7 +24,6 @@ export interface ListProps {
     title: string
     content: {
         title: string
-        description: string
         icon: string
     }[]
 }
@@ -31,6 +31,18 @@ export interface ListProps {
 export const List: React.FC<ListProps> = (props) => {
 
     const { t } = useTranslation();
+    const { resolvedTheme } = useTheme();
+
+    const applyInverse = (path: string) => {
+        if (!path.includes("colored")) {
+            if (resolvedTheme === "dark") {
+                return "invert-icon";
+            }
+        }
+        return null;
+    }
+
+    const translation = t(`homepage.skills`, { returnObjects: true }) as Array<{ title: string, description: string }>;
 
     return (
         <Card className={props.className}>
@@ -43,12 +55,12 @@ export const List: React.FC<ListProps> = (props) => {
                         <div key={index} className="w-[50px] h-[50px]">
                             <HoverCard>
                                 <HoverCardTrigger>
-                                    <Image src={item.icon} alt={`Icon for ${item.title}`} height={50} width={50} />
+                                    <Image src={item.icon} alt={`Icon for ${item.title}`} height={50} width={50} className={`${applyInverse(item.icon)}`} />
                                     <h2>{item.title}</h2>
                                     <div className="grid place-content-center">    
                                         <HoverCardContent>
                                             <h2><strong>{item.title}</strong></h2>
-                                            <p>{t(`homepage.skills.${props.id}.description`)}</p>
+                                            <p>{translation.find((value) => value.title === item.title)?.description}</p>
                                         </HoverCardContent>
                                     </div>
                                 </HoverCardTrigger>

@@ -43,15 +43,10 @@ export const AvatarFlip: React.FC<AvatarProps> = (props) => {
         style={containerStyle}
         className={"rounded-full overflow-hidden shadow-md " + props.className}
       >
-        <Image
-          src={isHover ? props.imageHover : props.image}
-          alt={props.alt}
-          width={props.width}
-          height={props.height}
-          className="rounded-full"
-          style={styleImage}
-          priority
-        />
+        {
+          isHover ? <Image src={props.imageHover} alt={props.alt} width={props.width} height={props.height} className="rounded-full" style={styleImage}/>
+          : <Image src={props.image} alt={props.alt} width={props.width} height={props.height} className="rounded-full" style={styleImage} priority={true}/>
+        }
       </div>
     );
   };
