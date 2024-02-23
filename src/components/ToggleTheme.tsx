@@ -51,7 +51,6 @@ export const SwitchTheme: React.FC<ToggleThemeProps> = (props: ToggleThemeProps)
 
   const handle = () =>
   {
-    console.log("handle")
     const current = resolvedTheme;
     if (current === "light")
       setTheme("dark")

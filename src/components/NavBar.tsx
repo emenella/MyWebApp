@@ -29,7 +29,7 @@ const NavBar = (props: NavBarProps) => {
 
     return (
         <div className={props.className}>
-            <NavigationMenu className="gap-5">
+            <NavigationMenu>
                 <NavigationMenuList>
                     <NavigationMenuItem>
                         <Link href={"/" + i18n.language} legacyBehavior passHref>
