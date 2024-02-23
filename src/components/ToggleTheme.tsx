@@ -11,6 +11,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { Switch } from "./ui/switch"
 
 interface ToggleThemeProps {
   className?: string
@@ -41,6 +42,28 @@ export default function ToggleTheme(props: ToggleThemeProps) {
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
+    </div>
+  )
+}
+
+export const SwitchTheme: React.FC<ToggleThemeProps> = (props: ToggleThemeProps) => {
+  const { setTheme, resolvedTheme } = useTheme();
+
+  const handle = () =>
+  {
+    console.log("handle")
+    const current = resolvedTheme;
+    if (current === "light")
+      setTheme("dark")
+    else
+      setTheme("light")
+  }
+
+  const isCheck: boolean = (() => resolvedTheme === "dark")()
+
+  return (
+    <div className={props.className}>
+      <Switch checked={isCheck} onCheckedChange={handle}/> 
     </div>
   )
 }

@@ -42,7 +42,7 @@ export default async function RootLayout(props: RootLayoutProps) {
           <div className="flex flex-row border-b p-5 gap-x-5 justify-center">
             <NavBar/>
           </div>
-          <div className=''>
+          <div>
             {props.children}
             <Analytics/>
             <SpeedInsights/>

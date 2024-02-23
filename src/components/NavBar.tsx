@@ -13,7 +13,7 @@ import {
 import Link from "next/link"
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 import SwitchLang  from '@/components/SwitchLang';
-import ToggleTheme from '@/components/ToggleTheme';
+import ToggleTheme, { SwitchTheme } from '@/components/ToggleTheme';
 import { useTranslation } from 'react-i18next';
 import { usePathname } from 'next/navigation';
 
@@ -54,12 +54,8 @@ const NavBar = (props: NavBarProps) => {
                     <NavigationMenuItem>
                         <SwitchLang/>
                     </NavigationMenuItem>
-                        {/* <a href={"/" + "fr/" + param}>FR</a> */}
                     <NavigationMenuItem>
-                    {/* </NavigationMenuItem>
-                        <a href={"/" + "en/" + param}>EN</a>
-                    <NavigationMenuItem> */}
-                        <ToggleTheme/>
+                        <SwitchTheme/>
                     </NavigationMenuItem>
                 </NavigationMenuList>
             </NavigationMenu>

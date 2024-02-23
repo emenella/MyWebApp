@@ -6,21 +6,50 @@ import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import i18nConfig from '@/i18nConfig';
 import { useTranslation } from 'react-i18next';
+import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 const Languages = {
-    EN: "en",
-    FR: "fr",
+    EN: {
+        display: "United States",
+        icon: "us",
+        it: "en"
+    },
+    FR: {
+        display: "Français",
+        icon: "fr",
+        it: "fr"
+    },
 };
+
+interface PropsDisplayCurrent
+{
+    current: string;
+}
+
+const DisplayLang: React.FC<PropsDisplayCurrent> = ({ current }) => {
+    switch (current)
+    {
+        case Languages.EN.it:
+            return <ReactCountryFlag countryCode={Languages.EN.icon} svg aria-label={Languages.EN.display}/>
+        case Languages.FR.it:
+            return <ReactCountryFlag countryCode={Languages.FR.icon} svg aria-label={Languages.FR.display}/>
+    }
+}
 
 export default function SwitchLang() {
     
-    // const { i18n } = useTranslation();
     const router = useRouter();
     const currentPathname = usePathname();
     const [currentLocale, setCurrentLocale] = useState<string>(currentPathname.split('/')[1] as string);
 
-    const handleLang = () => {
-        const newLocale = currentLocale === Languages.EN ? Languages.FR : Languages.EN;
+    const handleLang = (newCurrent: string) => {
+        const newLocale = newCurrent;
         const days = 30;
         const date = new Date();
         date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
@@ -47,13 +76,27 @@ export default function SwitchLang() {
         router.refresh();
     };
 
+    
+
     return (
-        <div className="flex flex-row gap-2 justify-item-center">
-            <Switch onCheckedChange={handleLang} checked={currentLocale == Languages.EN ? false : currentLocale == Languages.FR ? true : undefined} className="mt-1"/>
-            <ReactCountryFlag countryCode={currentLocale == Languages.EN ? 'gb' : 'fr'} svg className="flag-icon"style={{
-                    width: '2em',
-                    height: '2em',
-                }} />
+        <div className="">
+            <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                    <Button variant="outline" size="icon">
+                        <DisplayLang current={currentLocale}/>
+                    </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                    <DropdownMenuItem className="flex flex-cols gap-2" onClick={() => handleLang(Languages.EN.it)}>
+                        <DisplayLang current={Languages.EN.it}/>
+                        {Languages.EN.display}
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="flex flex-cols gap-2" onClick={() => handleLang(Languages.FR.it)}>
+                        <DisplayLang current={Languages.FR.it}/>
+                        {Languages.FR.display}
+                    </DropdownMenuItem>
+                </DropdownMenuContent>
+            </DropdownMenu>
         </div>
     )
 }
