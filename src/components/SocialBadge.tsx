@@ -2,6 +2,9 @@
 import Image from "next/image";
 import { badgeVariants } from "./ui/badge";
 import { useTheme } from "next-themes";
+import React, { useState, useEffect } from "react";
+import { Skeleton } from "@/components/ui/skeleton"
+import clsx from "clsx";
 
 export interface SocialBadgeProps {
     links: {
@@ -13,9 +16,26 @@ export interface SocialBadgeProps {
     responsive?: string
 }
 
+const Loading: React.FC<SocialBadgeProps> = (props: SocialBadgeProps) =>
+{
+    return (
+        <div className={props.className}>
+            {props.links.map((value, index) => (
+                <Skeleton key={index} className={clsx("h-9 w-28", badgeVariants({variant: "default"}))} />
+            ))}
+        </div>
+    )
+}
+
 export const SocialBadge = (props: SocialBadgeProps) => {
 
     const { resolvedTheme } = useTheme();
+    const [isClient, setIsClient] = useState<boolean>(false)
+    
+    useEffect(() => {
+        if (typeof window !== 'undefined')
+            setIsClient(true);
+    }, [])
 
     const applyInverse = (path: string) => {
         if (!path.includes("colored")) {
@@ -23,8 +43,11 @@ export const SocialBadge = (props: SocialBadgeProps) => {
                 return "invert-icon";
             }
         }
-        return null;
+        return "";
     }
+
+    if (!isClient)
+        return <Loading links={props.links} className={props.className} responsive={props.responsive}/>;
 
     return (
         <div className={props.className}>

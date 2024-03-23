@@ -17,6 +17,7 @@ import {
     HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import { useTheme } from 'next-themes';
+import { useState, useEffect } from "react";
 
 export interface ListProps {
     className?: string
@@ -32,7 +33,13 @@ export const List: React.FC<ListProps> = (props) => {
 
     const { t } = useTranslation();
     const { resolvedTheme } = useTheme();
+    const [isClient, setIsClient] = useState<boolean>(false)
 
+    useEffect(() => {
+        if (typeof window !== 'undefined')
+            setIsClient(true);
+    }, [])
+    
     const applyInverse = (path: string) => {
         if (!path.includes("colored")) {
             if (resolvedTheme === "dark") {
@@ -44,6 +51,9 @@ export const List: React.FC<ListProps> = (props) => {
 
     const translation = t(`homepage.skills`, { returnObjects: true }) as Array<{ title: string, description: string }>;
 
+    if (!isClient)
+        return null;
+    
     return (
         <Card className={props.className}>
             <CardHeader>

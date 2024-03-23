@@ -1,6 +1,5 @@
 "use client"
-
-import * as React from "react"
+import { useState, useEffect } from "react"
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 
@@ -12,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Switch } from "./ui/switch"
+import { boolean } from "zod"
 
 interface ToggleThemeProps {
   className?: string
@@ -48,6 +48,7 @@ export default function ToggleTheme(props: ToggleThemeProps) {
 
 export const SwitchTheme: React.FC<ToggleThemeProps> = (props: ToggleThemeProps) => {
   const { setTheme, resolvedTheme } = useTheme();
+  const [isCheck, setIsCheck] = useState<boolean>(false);
 
   const handle = () =>
   {
@@ -58,7 +59,9 @@ export const SwitchTheme: React.FC<ToggleThemeProps> = (props: ToggleThemeProps)
       setTheme("light")
   }
 
-  const isCheck: boolean = (() => resolvedTheme === "dark")()
+  useEffect(() => {
+    setIsCheck(resolvedTheme === "dark")
+  }, [resolvedTheme])
 
   return (
     <div className={props.className}>

@@ -12,7 +12,9 @@ import {
 import { useTranslation } from 'react-i18next';
 import { Badge } from './ui/badge';
 import { useTheme } from 'next-themes';
-
+import { useState, useEffect } from "react";
+import { Skeleton } from './ui/skeleton';
+import clsx from 'clsx';
 
 interface TechnologiesProps {
     technologies: {
@@ -36,9 +38,24 @@ export interface ProjectProps {
     className?: string
 }
 
+const Loading: React.FC<TechnologiesProps> = (props: TechnologiesProps) =>
+{
+    return (
+        <div className={props.className}>
+            {props.technologies.map((value, index) => <Skeleton key={index} className={clsx("h-7 w-28")}/>)}
+        </div>
+    )
+}
+
 const BadgeTechnologies: React.FC<TechnologiesProps> = (props) => {
 
     const { resolvedTheme } = useTheme();
+    const [isClient, setIsClient] = useState<boolean>(false)
+
+    useEffect(() => {
+        if (typeof window !== 'undefined')
+            setIsClient(true);
+    }, [])
 
     const applyInverse = (path: string) => {
         if (!path.includes("colored")) {
@@ -46,14 +63,16 @@ const BadgeTechnologies: React.FC<TechnologiesProps> = (props) => {
                 return "invert-icon";
             }
         }
-        return null;
+        return "";
     }
-
+    if (!isClient)
+        return <Loading className={props.className} technologies={props.technologies}/>;
+    
     return (
         <div className={props.className}>
             {props.technologies.map((technology, index) => (
                 <div key={index}>
-                    <Badge variant="default" className='h-auto w-30'>
+                    <Badge variant="default" className='h-auto'>
                         <div className="flex items-center gap-2">
                             <Image src={technology.icon} alt={`Icon for ${technology.name}`} width={20} height={20} className={`${applyInverse(technology.icon)}`} />
                             <span className='hidden xl:inline'>{technology.name}</span>
