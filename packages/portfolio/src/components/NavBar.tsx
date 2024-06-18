@@ -14,6 +14,7 @@ import Link from "next/link"
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 import SwitchLang  from '@/components/SwitchLang';
 import ToggleTheme from '@/components/ToggleTheme';
+import ToggleLang from "./ToggleLang";
 
 interface NavBarProps {
     className?: string
@@ -45,10 +46,11 @@ const NavBar = (props: NavBarProps) => {
                             </Link>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <SwitchLang/>
+                        {/* <SwitchLang/> */}
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <ToggleTheme/>
+                        {/* <ToggleTheme/> */}
+                        <ToggleLang/>
                     </NavigationMenuItem>
                 </NavigationMenuList>
             </NavigationMenu>

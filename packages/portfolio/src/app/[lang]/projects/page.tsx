@@ -9,7 +9,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-import TranslationsProvider from '@/components/TranslationsProvider';
+import TranslationsProvider from '@/components/providers/TranslationsProvider';
 
 interface ProjectProps {
     params: {

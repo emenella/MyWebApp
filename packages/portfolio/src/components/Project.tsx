@@ -1,5 +1,6 @@
 "use client"
-import React from 'react';
+import React, { useContext } from 'react';
+import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import {
     Card,
@@ -11,12 +12,15 @@ import {
 } from "@/components/ui/card";
 import { useTranslation } from 'react-i18next';
 import { Badge } from './ui/badge';
+import clsx from 'clsx';
+import { clientSide } from './providers/ClientSideProvider';
 
 
 interface TechnologiesProps {
     technologies: {
         name: string
         icon: string
+        invert: boolean
     }[]
     className?: string
 }
@@ -35,7 +39,19 @@ export interface ProjectProps {
     className?: string
 }
 
+type ElementType<T> = T extends Array<infer U> ? U : T;
+
+function invert(link: ElementType<TechnologiesProps['technologies']>, theme: string | undefined, className: string) {
+    if (link.invert === true && theme === "light")
+        return clsx(className, "invert")
+    else
+        return className;
+}
+
 const BadgeTechnologies: React.FC<TechnologiesProps> = (props) => {
+    const { theme } = useTheme()
+
+    const isClientSide = useContext(clientSide);
 
     return (
         <div className={props.className}>
@@ -43,7 +59,7 @@ const BadgeTechnologies: React.FC<TechnologiesProps> = (props) => {
                 <div key={index}>
                     <Badge variant="default" className='h-auto w-30'>
                         <div className="flex items-center gap-2">
-                            <Image src={technology.icon} alt={`Icon for ${technology.name}`} width={20} height={20} />
+                            {isClientSide ? <Image src={technology.icon} alt={`Icon for ${technology.name}`} className={invert(technology, theme, "")} width={20} height={20} /> : <></>}
                             <span className='hidden xl:inline'>{technology.name}</span>
                         </div>
                     </Badge>
@@ -69,7 +85,7 @@ export const Project: React.FC<{ projet: ProjectProps, showImage?: boolean, clas
                     </div>
                 </CardContent>
                 <CardFooter >
-                    <BadgeTechnologies className="grid grid-flow-col justify-end gap-3 " technologies={props.projet.technologies.map((technology) => ({ name: technology.name, icon: technology.icon }))} />
+                    <BadgeTechnologies className="grid grid-flow-col justify-end gap-3 " technologies={props.projet.technologies} />
                 </CardFooter>
             </Card>
     );

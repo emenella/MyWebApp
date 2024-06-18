@@ -8,27 +8,32 @@ const Backend = [
     {
       title: "Node.js",
       description: "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine.",
-      icon: IconPath + "nodedotjs.svg"
+      icon: IconPath + "nodedotjs.svg",
+      invert: false,
     },
     {
       title: "Bun",
       description: "Bun is a simple and fast HTTP router for Node.js.",
-      icon: IconPath + "bun.svg"
+      icon: IconPath + "bun.svg",
+      invert: true,
     },
     {
       title: "Nest.js",
       description: "A progressive Node.js framework for building efficient, reliable and scalable server-side applications.",
-      icon: IconPath + "nestjs.svg"
+      icon: IconPath + "nestjs.svg",
+      invert: false,
     },
     {
       title: "Fastify",
       description: "Fastify is a web framework highly focused on providing the best developer experience with the least overhead and a powerful plugin architecture.",
-      icon: IconPath + "fastify.svg"
+      icon: IconPath + "fastify.svg",
+      invert: true,
     },
     {
       title: "Express",
       description: "Fast, unopinionated, minimalist web framework for Node.js",
-      icon: IconPath + "express.svg"
+      icon: IconPath + "express.svg",
+      invert: true,
     },
   ];
   
@@ -36,22 +41,26 @@ const Frontend = [
     {
       title: "React",
       description: "A JavaScript library for building user interfaces.",
-      icon: IconPath + "react.svg"
+      icon: IconPath + "react.svg",
+      invert: false,
     },
     {
       title: "Next.js",
       description: "The React Framework for Production.",
-      icon: IconPath + "nextdotjs.svg"
+      icon: IconPath + "nextdotjs.svg",
+      invert: true,
     },
     {
       title: "Tailwind CSS",
       description: "A utility-first CSS framework for rapidly building custom designs.",
-      icon: IconPath + "tailwindcss.svg"
+      icon: IconPath + "tailwindcss.svg",
+      invert: false,
     },
     {
       title: "Framer Motion",
       description: "A production-ready motion library for React.",
-      icon: IconPath + "framer.svg"
+      icon: IconPath + "framer.svg",
+      invert: false,
     },
   ];
   
@@ -59,7 +68,8 @@ export const Cloud = [
     {
       title: "AWS",
       description: "Amazon Web Services offers reliable, scalable, and inexpensive cloud computing services.",
-      icon: IconPath + "amazonaws.svg"
+      icon: IconPath + "amazonaws.svg",
+      invert: true
     }
   ];
 
@@ -81,28 +91,33 @@ export const socialLinks: SocialBadgeProps["links"] = [
       name: "GitHub",
       url: "https://github.com/emenella",
       icon: IconPath + "github.svg",
+      invert: true,
     },
     {
       name: "Twitter",
       url: "https://x.com/emenella",
-      icon: IconPath + "x.svg"
+      icon: IconPath + "x.svg",
+      invert: true,
     },
     {
       name: "LinkedIn",
       url: "https://linkedin.com/in/emenella",
-      icon: IconPath + "linkedin.svg"
+      icon: IconPath + "linkedin.svg",
+      invert: false,
     },
     {
       name: "Malt",
       url: "https://malt.fr/profile/emenella",
-      icon: IconPath + "malt.svg"
+      icon: IconPath + "malt.svg",
+      invert: false,
     },
   ]
   
 export const mail = {
     name: "Email",
     url: "mailto:menella.erwan@gmail.com",
-    icon : IconPath + "mail.svg"
+    icon : IconPath + "mail.svg",
+    invert: true
   }
   
 export const projects: ProjectProps[] = [
@@ -114,22 +129,26 @@ export const projects: ProjectProps[] = [
       technologies: [
         {
           name: "React",
-          icon: IconPath + "react.svg"
+          icon: IconPath + "react.svg",
+          invert: false,
         },
         {
           name: "Next.js",
-          icon: IconPath + "nextdotjs.svg"
+          icon: IconPath + "nextdotjs.svg",
+          invert: true,
+
         },
         {
           name: "Tailwind CSS",
-          icon: IconPath + "tailwindcss.svg"
+          icon: IconPath + "tailwindcss.svg",
+          invert: false,
         }
       ],
       links:
         {
           name: "GitHub",
           url: "",
-          icon: IconPath + "github.svg"
+          icon: IconPath + "github.svg",
         }
     },
     {
@@ -140,15 +159,18 @@ export const projects: ProjectProps[] = [
       technologies: [
         {
           name: "React",
-          icon: IconPath + "react.svg"
+          icon: IconPath + "react.svg",
+          invert: false,
         },
         {
           name: "Nest.js",
-          icon: IconPath + "nestjs.svg"
+          icon: IconPath + "nestjs.svg",
+          invert: false
         },
         {
           name: "PostgreSQL",
-          icon: IconPath + "postgresql.svg"
+          icon: IconPath + "postgresql.svg",
+          invert: true,
         }
       ],
     },
@@ -160,7 +182,8 @@ export const projects: ProjectProps[] = [
       technologies: [
         {
           name: "C++",
-          icon: IconPath + "cplusplus.svg"
+          icon: IconPath + "cplusplus.svg",
+          invert: false
         },
       ],
     }

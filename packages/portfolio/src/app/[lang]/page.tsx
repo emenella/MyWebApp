@@ -4,7 +4,6 @@ import { SocialBadge } from "@/components/SocialBadge";
 import { SocialLink } from "@/components/SocialLink";
 import { ProjectList } from "@/components/Project";
 import { mail, socialLinks, skills, projects } from "@/app/data";
-import TranslationsProvider from '@/components/TranslationsProvider';
 import initTranslations from '@/app/i18n';
 
 
@@ -22,7 +21,6 @@ export default async function Home(props: HomeProps) {
 
   return (
     <div className="flex flex-col gap-5 p-5 md:p-10 lg:p-16">
-      <TranslationsProvider namespaces={i18nNamespaces} locale={props.params.lang}>
         <div className="md:flex md:justify-center text-center gap-5">
           <AvatarFlip
             image="/emenella.jpg"
@@ -54,7 +52,6 @@ export default async function Home(props: HomeProps) {
             <h2 className="text-2xl font-bold">Contact :</h2>
             <SocialLink links={[...socialLinks, mail]} className="w-max shadow-xl"/>
         </div>
-      </TranslationsProvider>
     </div>
   );
 }
