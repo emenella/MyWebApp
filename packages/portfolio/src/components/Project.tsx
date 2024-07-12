@@ -49,7 +49,7 @@ function invert(link: ElementType<TechnologiesProps['technologies']>, theme: str
 }
 
 const BadgeTechnologies: React.FC<TechnologiesProps> = (props) => {
-    const { theme } = useTheme()
+    const { resolvedTheme } = useTheme()
 
     const isClientSide = useContext(clientSide);
 
@@ -59,7 +59,7 @@ const BadgeTechnologies: React.FC<TechnologiesProps> = (props) => {
                 <div key={index}>
                     <Badge variant="default" className='h-auto w-30'>
                         <div className="flex items-center gap-2">
-                            {isClientSide ? <Image src={technology.icon} alt={`Icon for ${technology.name}`} className={invert(technology, theme, "")} width={20} height={20} /> : <></>}
+                            {isClientSide ? <Image src={technology.icon} alt={`Icon for ${technology.name}`} className={invert(technology, resolvedTheme, "")} width={20} height={20} /> : <></>}
                             <span className='hidden xl:inline'>{technology.name}</span>
                         </div>
                     </Badge>

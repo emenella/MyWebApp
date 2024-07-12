@@ -46,7 +46,7 @@ export const List: React.FC<ListProps> = (props) => {
 
     const { t } = useTranslation();
 
-    const { theme } = useTheme();
+    const { resolvedTheme } = useTheme();
 
     const isClientSide = useContext(clientSide);
 
@@ -61,7 +61,7 @@ export const List: React.FC<ListProps> = (props) => {
                         <div key={index} className="w-[50px] h-[50px]">
                             <HoverCard>
                                 <HoverCardTrigger>
-                                    {isClientSide ? <Image src={item.icon} alt={`Icon for ${item.title}`} className={invert(item, theme, "")} height={50} width={50} /> : <Skeleton className="h-12 w-12 rounded-full"/>}
+                                    {isClientSide ? <Image src={item.icon} alt={`Icon for ${item.title}`} className={invert(item, resolvedTheme, "")} height={50} width={50} /> : <Skeleton className="h-12 w-12 rounded-full"/>}
                                     <div className="grid place-content-center">    
                                         <HoverCardContent>
                                             <h2><strong>{item.title}</strong></h2>

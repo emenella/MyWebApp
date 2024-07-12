@@ -14,9 +14,6 @@ import { Skeleton } from "./ui/skeleton"
 
 interface ToggleProps {
     className?: string
-    params: {
-        lang: string
-    }
 }
 
 export default function ToggleLang(props: ToggleProps) {

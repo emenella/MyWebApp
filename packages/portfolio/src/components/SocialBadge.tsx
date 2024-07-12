@@ -29,7 +29,7 @@ function invert(link: ElementType<SocialBadgeProps["links"]>, theme: string | un
 
 export const SocialBadge = (props: SocialBadgeProps) => {
 
-    const { theme } = useTheme()
+    const { resolvedTheme } = useTheme()
 
     const isClientSide = useContext(clientSide);
 
@@ -38,7 +38,7 @@ export const SocialBadge = (props: SocialBadgeProps) => {
             {props.links.map((link, index) => (
                     <a href={link.url} key={index} className={badgeVariants({variant: "default"}) + ""} target="_blank" rel="noopener noreferrer">
                         <div className="flex flex-row items-center gap-2">
-                            {isClientSide ? <Image src={link.icon} alt={`Icon for ${link.name}`} width={30} height={30} className={invert(link, theme, "")}/> : <Skeleton className="h-6 w-6 rounded-full"/>}
+                            {isClientSide ? <Image src={link.icon} alt={`Icon for ${link.name}`} width={30} height={30} className={invert(link, resolvedTheme, "")}/> : <Skeleton className="h-6 w-6 rounded-full"/>}
                             <span className={props.responsive}>{link.name}</span>
                         </div>
                     </a>

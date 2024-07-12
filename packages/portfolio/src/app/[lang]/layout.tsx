@@ -24,12 +24,8 @@ export default async function RootLayout(props: RootLayoutProps) {
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ProvidersWrapper params={props.params}>
-            <div className="flex flex-row border-b p-5 gap-x-5 justify-center">
-              <NavBar/>
-            </div>
-            <div className=''>
-              {props.children}
-            </div>
+            <NavBar className="flex flex-row border-b p-5 gap-x-5 justify-center"/>
+            {props.children}
         </ProvidersWrapper>
       </body>
     </html>
