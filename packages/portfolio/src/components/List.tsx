@@ -24,7 +24,7 @@ import { clientSide } from './providers/ClientSideProvider';
 export interface ListProps {
     className?: string
     id?: number
-    title: string
+    title?: string
     content: {
         title: string
         description: string
@@ -51,29 +51,19 @@ export const List: React.FC<ListProps> = (props) => {
     const isClientSide = useContext(clientSide);
 
     return (
-        <Card className={props.className}>
-            <CardHeader>
-                <CardTitle>{props.title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-                <div className="flex flex-row gap-5 justify-start">
+        <div className={props.className}>
+            {/* <CardContent> */}
+                <div className="grid grid-cols-3 gap-5 justify-items-center ">
                     {props.content.map((item, index) => (
-                        <div key={index} className="w-[50px] h-[50px]">
-                            <HoverCard>
-                                <HoverCardTrigger>
-                                    {isClientSide ? <Image src={item.icon} alt={`Icon for ${item.title}`} className={invert(item, resolvedTheme, "")} height={50} width={50} /> : <Skeleton className="h-12 w-12 rounded-full"/>}
-                                    <div className="grid place-content-center">    
-                                        <HoverCardContent>
-                                            <h2><strong>{item.title}</strong></h2>
-                                            <p>{t(`homepage.skills.${props.id}.description`)}</p>
-                                        </HoverCardContent>
-                                    </div>
-                                </HoverCardTrigger>
-                            </HoverCard>
-                        </div>
+                        <Card key={index} className="">
+                            <CardContent>
+                                {isClientSide ? <Image src={item.icon} alt={`Icon for ${item.title}`} className={invert(item, resolvedTheme, "")} height={50} width={50} /> : <Skeleton className="h-[50px] w-[50px] rounded-full"/>}
+                                <p>{item.title}</p>
+                            </CardContent>
+                        </Card>
                     ))}
                 </div>
-            </CardContent>
-        </Card>
+            {/* </CardContent> */}
+        </div>
     );
 }

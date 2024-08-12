@@ -4,17 +4,7 @@ import { CV, CVProps } from '@/components/CV';
 const PDF = "/pdf/"
 
 const cvs : CVProps[] = [{
-    url: PDF + 'CV_blockchain.pdf',
-    width: 50,
-    height: 50,
-},
-{
-    url: PDF + 'CV_fullstack.pdf',
-    width: 50,
-    height: 50,
-},
-{
-    url: PDF + 'CV_Ingenieur.pdf',
+    url: PDF + 'CV-fr.pdf',
     width: 50,
     height: 50,
 }]

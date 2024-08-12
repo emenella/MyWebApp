@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "tool_boxes",
+  "info": {
+    "singularName": "tool-box",
+    "pluralName": "tool-boxes",
+    "displayName": "ToolBox"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true,
+      "default": "Tool box"
+    }
+  }
+}

@@ -16,7 +16,7 @@ import clsx from 'clsx';
 import { clientSide } from './providers/ClientSideProvider';
 
 
-interface TechnologiesProps {
+export interface TechnologiesProps {
     technologies: {
         name: string
         icon: string
@@ -48,7 +48,7 @@ function invert(link: ElementType<TechnologiesProps['technologies']>, theme: str
         return className;
 }
 
-const BadgeTechnologies: React.FC<TechnologiesProps> = (props) => {
+export const BadgeTechnologies: React.FC<TechnologiesProps> = (props) => {
     const { resolvedTheme } = useTheme()
 
     const isClientSide = useContext(clientSide);
@@ -57,7 +57,7 @@ const BadgeTechnologies: React.FC<TechnologiesProps> = (props) => {
         <div className={props.className}>
             {props.technologies.map((technology, index) => (
                 <div key={index}>
-                    <Badge variant="default" className='h-auto w-30'>
+                    <Badge variant="default">
                         <div className="flex items-center gap-2">
                             {isClientSide ? <Image src={technology.icon} alt={`Icon for ${technology.name}`} className={invert(technology, resolvedTheme, "")} width={20} height={20} /> : <></>}
                             <span className='hidden xl:inline'>{technology.name}</span>
@@ -85,7 +85,7 @@ export const Project: React.FC<{ projet: ProjectProps, showImage?: boolean, clas
                     </div>
                 </CardContent>
                 <CardFooter >
-                    <BadgeTechnologies className="grid grid-flow-col justify-end gap-3 " technologies={props.projet.technologies} />
+                    <BadgeTechnologies className="grid grid-flow-col justify-end gap-3 h-max w-max" technologies={props.projet.technologies} />
                 </CardFooter>
             </Card>
     );

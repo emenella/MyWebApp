@@ -21,7 +21,7 @@ const i18nNamespaces = ['common'];
 export default function ProjectPage (props: ProjectProps) {
     
     return (
-        <div className='pt-5'>
+        <div className='p-5'>
             <Card>
                 <CardHeader>
                     <CardTitle>Project</CardTitle>

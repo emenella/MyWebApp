@@ -822,31 +822,30 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiCompetanceCompetance extends Schema.CollectionType {
-  collectionName: 'competances';
+export interface ApiSkillSkill extends Schema.CollectionType {
+  collectionName: 'skills';
   info: {
-    singularName: 'competance';
-    pluralName: 'competances';
-    displayName: 'Comp\u00E9tance';
+    singularName: 'skill';
+    pluralName: 'skills';
+    displayName: 'Skill';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Nom: Attribute.String;
-    Description: Attribute.Blocks;
-    Icon: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    Description: Attribute.Text;
+    Title: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::competance.competance',
+      'api::skill.skill',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::competance.competance',
+      'api::skill.skill',
       'oneToOne',
       'admin::user'
     > &
@@ -860,12 +859,16 @@ export interface ApiSocialSocial extends Schema.CollectionType {
     singularName: 'social';
     pluralName: 'socials';
     displayName: 'Social';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    email: Attribute.Email & Attribute.Required;
+    name: Attribute.String & Attribute.Required & Attribute.Unique;
+    url: Attribute.String & Attribute.Required;
+    icon: Attribute.Media<'images'> & Attribute.Required;
+    invert: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -895,11 +898,39 @@ export interface ApiTitleTitle extends Schema.SingleType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    Title: Attribute.String & Attribute.Required;
-    Subtitle: Attribute.String & Attribute.Required;
-    Avatar: Attribute.Media<'images'> & Attribute.Required;
-    ReverseAvatar: Attribute.Media<'images'>;
+    Title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Subtitle: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Avatar: Attribute.Media<'images'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    ReverseAvatar: Attribute.Media<'images'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -911,6 +942,44 @@ export interface ApiTitleTitle extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::title.title',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::title.title',
+      'oneToMany',
+      'api::title.title'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiToolBoxToolBox extends Schema.SingleType {
+  collectionName: 'tool_boxes';
+  info: {
+    singularName: 'tool-box';
+    pluralName: 'tool-boxes';
+    displayName: 'ToolBox';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'Tool box'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::tool-box.tool-box',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::tool-box.tool-box',
       'oneToOne',
       'admin::user'
     > &
@@ -937,9 +1006,10 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::competance.competance': ApiCompetanceCompetance;
+      'api::skill.skill': ApiSkillSkill;
       'api::social.social': ApiSocialSocial;
       'api::title.title': ApiTitleTitle;
+      'api::tool-box.tool-box': ApiToolBoxToolBox;
     }
   }
 }

@@ -1,0 +1,48 @@
+query GetTitle($lang: I18NLocaleCode) {
+  title(locale: $lang) {
+    data {
+      id
+      attributes {
+        Title
+        Subtitle
+        Avatar {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+        ReverseAvatar {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+        localizations {
+          data {
+            id
+            attributes {
+              Title
+              Subtitle
+              Avatar {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
+              ReverseAvatar {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

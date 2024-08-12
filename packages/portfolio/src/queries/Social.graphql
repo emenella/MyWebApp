@@ -1,0 +1,18 @@
+query GetSocial {
+    socials {
+      data {
+        attributes {
+          name
+          url
+          invert
+          icon {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  }
