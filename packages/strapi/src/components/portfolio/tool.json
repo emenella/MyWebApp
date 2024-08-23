@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_portfolio_tools",
+  "info": {
+    "displayName": "Tool",
+    "icon": "scissors"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Icon": {
+      "type": "component",
+      "repeatable": false,
+      "component": "utils.icon"
+    }
+  }
+}

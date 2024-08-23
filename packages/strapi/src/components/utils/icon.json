@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_utils_icons",
+  "info": {
+    "displayName": "Icon",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Alt": {
+      "type": "text"
+    },
+    "Invert": {
+      "type": "boolean"
+    },
+    "Media": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

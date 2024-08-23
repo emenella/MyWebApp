@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 
 export interface AvatarProps {
-    image: string
+    src: string
     alt: string
     imageHover: string
     height : number
@@ -22,36 +22,16 @@ export const AvatarFlip: React.FC<AvatarProps> = (props) => {
       setIsHover(false);
     };
   
-    const styleImage: React.CSSProperties = {
-      transition: 'transform 0.3s',
-      backfaceVisibility: 'hidden',
-      height: `${props.height}px`, // Définissez la hauteur de l'image
-      width: `${props.width}px`, // Définissez la largeur de l'image
-      objectFit: 'cover',
-    };
-
-    const containerStyle: React.CSSProperties = {
-      position: 'relative',
-      height: `${props.height}px`, // Définissez la hauteur de la div
-      width: `${props.width}px`, // Définissez la largeur de la div
-    };
-  
     return (
-      <div
+      <Image
+        src={isHover ? props.imageHover : props.src}
+        alt={props.alt}
+        width={props.width}
+        height={props.height}
+        className={props.className}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        style={containerStyle}
-        className={"rounded-full overflow-hidden shadow-md " + props.className}
-      >
-        <Image
-          src={isHover ? props.imageHover : props.image}
-          alt={props.alt}
-          width={props.width}
-          height={props.height}
-          className="rounded-full"
-          style={styleImage}
-          priority
-        />
-      </div>
+        priority
+      />
     );
   };

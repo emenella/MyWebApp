@@ -46,57 +46,54 @@ export type BooleanFilterInput = {
   startsWith?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
-export type Competance = {
-  __typename?: 'Competance';
-  Description?: Maybe<Scalars['JSON']['output']>;
-  Icon?: Maybe<UploadFileRelationResponseCollection>;
-  Nom?: Maybe<Scalars['String']['output']>;
-  createdAt?: Maybe<Scalars['DateTime']['output']>;
-  publishedAt?: Maybe<Scalars['DateTime']['output']>;
-  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+export type ComponentPortfolioTool = {
+  __typename?: 'ComponentPortfolioTool';
+  Description?: Maybe<Scalars['String']['output']>;
+  Icon?: Maybe<ComponentUtilsIcon>;
+  Name?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
 };
 
-
-export type CompetanceIconArgs = {
-  filters?: InputMaybe<UploadFileFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+export type ComponentPortfolioToolFiltersInput = {
+  Description?: InputMaybe<StringFilterInput>;
+  Icon?: InputMaybe<ComponentUtilsIconFiltersInput>;
+  Name?: InputMaybe<StringFilterInput>;
+  and?: InputMaybe<Array<InputMaybe<ComponentPortfolioToolFiltersInput>>>;
+  not?: InputMaybe<ComponentPortfolioToolFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentPortfolioToolFiltersInput>>>;
 };
 
-export type CompetanceEntity = {
-  __typename?: 'CompetanceEntity';
-  attributes?: Maybe<Competance>;
-  id?: Maybe<Scalars['ID']['output']>;
+export type ComponentPortfolioToolInput = {
+  Description?: InputMaybe<Scalars['String']['input']>;
+  Icon?: InputMaybe<ComponentUtilsIconInput>;
+  Name?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
 };
 
-export type CompetanceEntityResponse = {
-  __typename?: 'CompetanceEntityResponse';
-  data?: Maybe<CompetanceEntity>;
+export type ComponentUtilsIcon = {
+  __typename?: 'ComponentUtilsIcon';
+  Alt?: Maybe<Scalars['String']['output']>;
+  Invert?: Maybe<Scalars['Boolean']['output']>;
+  Media?: Maybe<UploadFileEntityResponse>;
+  Name?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
 };
 
-export type CompetanceEntityResponseCollection = {
-  __typename?: 'CompetanceEntityResponseCollection';
-  data: Array<CompetanceEntity>;
-  meta: ResponseCollectionMeta;
+export type ComponentUtilsIconFiltersInput = {
+  Alt?: InputMaybe<StringFilterInput>;
+  Invert?: InputMaybe<BooleanFilterInput>;
+  Name?: InputMaybe<StringFilterInput>;
+  and?: InputMaybe<Array<InputMaybe<ComponentUtilsIconFiltersInput>>>;
+  not?: InputMaybe<ComponentUtilsIconFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentUtilsIconFiltersInput>>>;
 };
 
-export type CompetanceFiltersInput = {
-  Description?: InputMaybe<JsonFilterInput>;
-  Nom?: InputMaybe<StringFilterInput>;
-  and?: InputMaybe<Array<InputMaybe<CompetanceFiltersInput>>>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  not?: InputMaybe<CompetanceFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<CompetanceFiltersInput>>>;
-  publishedAt?: InputMaybe<DateTimeFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-};
-
-export type CompetanceInput = {
-  Description?: InputMaybe<Scalars['JSON']['input']>;
-  Icon?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  Nom?: InputMaybe<Scalars['String']['input']>;
-  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+export type ComponentUtilsIconInput = {
+  Alt?: InputMaybe<Scalars['String']['input']>;
+  Invert?: InputMaybe<Scalars['Boolean']['input']>;
+  Media?: InputMaybe<Scalars['ID']['input']>;
+  Name?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
 };
 
 export type DateTimeFilterInput = {
@@ -155,59 +152,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']['input']>;
 };
 
-export type GenericMorph = Competance | GithubProjectsProject | I18NLocale | Social | Title | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
-
-export type GithubProjectsProject = {
-  __typename?: 'GithubProjectsProject';
-  coverImage?: Maybe<UploadFileEntityResponse>;
-  createdAt?: Maybe<Scalars['DateTime']['output']>;
-  longDescription?: Maybe<Scalars['String']['output']>;
-  repositoryId?: Maybe<Scalars['String']['output']>;
-  repositoryUrl?: Maybe<Scalars['String']['output']>;
-  shortDescription?: Maybe<Scalars['String']['output']>;
-  title: Scalars['String']['output'];
-  updatedAt?: Maybe<Scalars['DateTime']['output']>;
-};
-
-export type GithubProjectsProjectEntity = {
-  __typename?: 'GithubProjectsProjectEntity';
-  attributes?: Maybe<GithubProjectsProject>;
-  id?: Maybe<Scalars['ID']['output']>;
-};
-
-export type GithubProjectsProjectEntityResponse = {
-  __typename?: 'GithubProjectsProjectEntityResponse';
-  data?: Maybe<GithubProjectsProjectEntity>;
-};
-
-export type GithubProjectsProjectEntityResponseCollection = {
-  __typename?: 'GithubProjectsProjectEntityResponseCollection';
-  data: Array<GithubProjectsProjectEntity>;
-  meta: ResponseCollectionMeta;
-};
-
-export type GithubProjectsProjectFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<GithubProjectsProjectFiltersInput>>>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  longDescription?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<GithubProjectsProjectFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<GithubProjectsProjectFiltersInput>>>;
-  repositoryId?: InputMaybe<StringFilterInput>;
-  repositoryUrl?: InputMaybe<StringFilterInput>;
-  shortDescription?: InputMaybe<StringFilterInput>;
-  title?: InputMaybe<StringFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-};
-
-export type GithubProjectsProjectInput = {
-  coverImage?: InputMaybe<Scalars['ID']['input']>;
-  longDescription?: InputMaybe<Scalars['String']['input']>;
-  repositoryId?: InputMaybe<Scalars['String']['input']>;
-  repositoryUrl?: InputMaybe<Scalars['String']['input']>;
-  shortDescription?: InputMaybe<Scalars['String']['input']>;
-  title?: InputMaybe<Scalars['String']['input']>;
-};
+export type GenericMorph = ComponentPortfolioTool | ComponentUtilsIcon | I18NLocale | Skill | Social | Title | ToolBox | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type I18NLocale = {
   __typename?: 'I18NLocale';
@@ -324,8 +269,8 @@ export type Mutation = {
   __typename?: 'Mutation';
   /** Change user password. Confirm with the current password. */
   changePassword?: Maybe<UsersPermissionsLoginPayload>;
-  createCompetance?: Maybe<CompetanceEntityResponse>;
-  createGithubProjectsProject?: Maybe<GithubProjectsProjectEntityResponse>;
+  createSkill?: Maybe<SkillEntityResponse>;
+  createSkillLocalization?: Maybe<SkillEntityResponse>;
   createSocial?: Maybe<SocialEntityResponse>;
   createTitleLocalization?: Maybe<TitleEntityResponse>;
   createUploadFile?: Maybe<UploadFileEntityResponse>;
@@ -334,10 +279,10 @@ export type Mutation = {
   createUsersPermissionsRole?: Maybe<UsersPermissionsCreateRolePayload>;
   /** Create a new user */
   createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
-  deleteCompetance?: Maybe<CompetanceEntityResponse>;
-  deleteGithubProjectsProject?: Maybe<GithubProjectsProjectEntityResponse>;
+  deleteSkill?: Maybe<SkillEntityResponse>;
   deleteSocial?: Maybe<SocialEntityResponse>;
   deleteTitle?: Maybe<TitleEntityResponse>;
+  deleteToolBox?: Maybe<ToolBoxEntityResponse>;
   deleteUploadFile?: Maybe<UploadFileEntityResponse>;
   deleteUploadFolder?: Maybe<UploadFolderEntityResponse>;
   /** Delete an existing role */
@@ -355,11 +300,11 @@ export type Mutation = {
   removeFile?: Maybe<UploadFileEntityResponse>;
   /** Reset user password. Confirm with a code (resetToken from forgotPassword) */
   resetPassword?: Maybe<UsersPermissionsLoginPayload>;
-  updateCompetance?: Maybe<CompetanceEntityResponse>;
   updateFileInfo: UploadFileEntityResponse;
-  updateGithubProjectsProject?: Maybe<GithubProjectsProjectEntityResponse>;
+  updateSkill?: Maybe<SkillEntityResponse>;
   updateSocial?: Maybe<SocialEntityResponse>;
   updateTitle?: Maybe<TitleEntityResponse>;
+  updateToolBox?: Maybe<ToolBoxEntityResponse>;
   updateUploadFile?: Maybe<UploadFileEntityResponse>;
   updateUploadFolder?: Maybe<UploadFolderEntityResponse>;
   /** Update an existing role */
@@ -377,13 +322,16 @@ export type MutationChangePasswordArgs = {
 };
 
 
-export type MutationCreateCompetanceArgs = {
-  data: CompetanceInput;
+export type MutationCreateSkillArgs = {
+  data: SkillInput;
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
 
-export type MutationCreateGithubProjectsProjectArgs = {
-  data: GithubProjectsProjectInput;
+export type MutationCreateSkillLocalizationArgs = {
+  data?: InputMaybe<SkillInput>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
 
@@ -419,13 +367,9 @@ export type MutationCreateUsersPermissionsUserArgs = {
 };
 
 
-export type MutationDeleteCompetanceArgs = {
+export type MutationDeleteSkillArgs = {
   id: Scalars['ID']['input'];
-};
-
-
-export type MutationDeleteGithubProjectsProjectArgs = {
-  id: Scalars['ID']['input'];
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
 
@@ -499,21 +443,16 @@ export type MutationResetPasswordArgs = {
 };
 
 
-export type MutationUpdateCompetanceArgs = {
-  data: CompetanceInput;
-  id: Scalars['ID']['input'];
-};
-
-
 export type MutationUpdateFileInfoArgs = {
   id: Scalars['ID']['input'];
   info?: InputMaybe<FileInfoInput>;
 };
 
 
-export type MutationUpdateGithubProjectsProjectArgs = {
-  data: GithubProjectsProjectInput;
+export type MutationUpdateSkillArgs = {
+  data: SkillInput;
   id: Scalars['ID']['input'];
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
 
@@ -526,6 +465,11 @@ export type MutationUpdateSocialArgs = {
 export type MutationUpdateTitleArgs = {
   data: TitleInput;
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type MutationUpdateToolBoxArgs = {
+  data: ToolBoxInput;
 };
 
 
@@ -583,16 +527,15 @@ export enum PublicationState {
 
 export type Query = {
   __typename?: 'Query';
-  competance?: Maybe<CompetanceEntityResponse>;
-  competances?: Maybe<CompetanceEntityResponseCollection>;
-  githubProjectsProject?: Maybe<GithubProjectsProjectEntityResponse>;
-  githubProjectsProjects?: Maybe<GithubProjectsProjectEntityResponseCollection>;
   i18NLocale?: Maybe<I18NLocaleEntityResponse>;
   i18NLocales?: Maybe<I18NLocaleEntityResponseCollection>;
   me?: Maybe<UsersPermissionsMe>;
+  skill?: Maybe<SkillEntityResponse>;
+  skills?: Maybe<SkillEntityResponseCollection>;
   social?: Maybe<SocialEntityResponse>;
   socials?: Maybe<SocialEntityResponseCollection>;
   title?: Maybe<TitleEntityResponse>;
+  toolBox?: Maybe<ToolBoxEntityResponse>;
   uploadFile?: Maybe<UploadFileEntityResponse>;
   uploadFiles?: Maybe<UploadFileEntityResponseCollection>;
   uploadFolder?: Maybe<UploadFolderEntityResponse>;
@@ -604,31 +547,6 @@ export type Query = {
 };
 
 
-export type QueryCompetanceArgs = {
-  id?: InputMaybe<Scalars['ID']['input']>;
-};
-
-
-export type QueryCompetancesArgs = {
-  filters?: InputMaybe<CompetanceFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  publicationState?: InputMaybe<PublicationState>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-
-export type QueryGithubProjectsProjectArgs = {
-  id?: InputMaybe<Scalars['ID']['input']>;
-};
-
-
-export type QueryGithubProjectsProjectsArgs = {
-  filters?: InputMaybe<GithubProjectsProjectFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-
 export type QueryI18NLocaleArgs = {
   id?: InputMaybe<Scalars['ID']['input']>;
 };
@@ -637,6 +555,21 @@ export type QueryI18NLocaleArgs = {
 export type QueryI18NLocalesArgs = {
   filters?: InputMaybe<I18NLocaleFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type QuerySkillArgs = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type QuerySkillsArgs = {
+  filters?: InputMaybe<SkillFiltersInput>;
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
@@ -656,6 +589,11 @@ export type QuerySocialsArgs = {
 
 export type QueryTitleArgs = {
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+  publicationState?: InputMaybe<PublicationState>;
+};
+
+
+export type QueryToolBoxArgs = {
   publicationState?: InputMaybe<PublicationState>;
 };
 
@@ -712,11 +650,81 @@ export type ResponseCollectionMeta = {
   pagination: Pagination;
 };
 
+export type Skill = {
+  __typename?: 'Skill';
+  Description?: Maybe<Scalars['String']['output']>;
+  Title?: Maybe<Scalars['String']['output']>;
+  Tools?: Maybe<Array<Maybe<ComponentPortfolioTool>>>;
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  locale?: Maybe<Scalars['String']['output']>;
+  localizations?: Maybe<SkillRelationResponseCollection>;
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+
+export type SkillToolsArgs = {
+  filters?: InputMaybe<ComponentPortfolioToolFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type SkillLocalizationsArgs = {
+  filters?: InputMaybe<SkillFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type SkillEntity = {
+  __typename?: 'SkillEntity';
+  attributes?: Maybe<Skill>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type SkillEntityResponse = {
+  __typename?: 'SkillEntityResponse';
+  data?: Maybe<SkillEntity>;
+};
+
+export type SkillEntityResponseCollection = {
+  __typename?: 'SkillEntityResponseCollection';
+  data: Array<SkillEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type SkillFiltersInput = {
+  Description?: InputMaybe<StringFilterInput>;
+  Title?: InputMaybe<StringFilterInput>;
+  Tools?: InputMaybe<ComponentPortfolioToolFiltersInput>;
+  and?: InputMaybe<Array<InputMaybe<SkillFiltersInput>>>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  locale?: InputMaybe<StringFilterInput>;
+  localizations?: InputMaybe<SkillFiltersInput>;
+  not?: InputMaybe<SkillFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<SkillFiltersInput>>>;
+  publishedAt?: InputMaybe<DateTimeFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type SkillInput = {
+  Description?: InputMaybe<Scalars['String']['input']>;
+  Title?: InputMaybe<Scalars['String']['input']>;
+  Tools?: InputMaybe<Array<InputMaybe<ComponentPortfolioToolInput>>>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type SkillRelationResponseCollection = {
+  __typename?: 'SkillRelationResponseCollection';
+  data: Array<SkillEntity>;
+};
+
 export type Social = {
   __typename?: 'Social';
+  Icon?: Maybe<ComponentUtilsIcon>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
-  icon: UploadFileEntityResponse;
-  invert: Scalars['Boolean']['output'];
   name: Scalars['String']['output'];
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
@@ -741,10 +749,10 @@ export type SocialEntityResponseCollection = {
 };
 
 export type SocialFiltersInput = {
+  Icon?: InputMaybe<ComponentUtilsIconFiltersInput>;
   and?: InputMaybe<Array<InputMaybe<SocialFiltersInput>>>;
   createdAt?: InputMaybe<DateTimeFilterInput>;
   id?: InputMaybe<IdFilterInput>;
-  invert?: InputMaybe<BooleanFilterInput>;
   name?: InputMaybe<StringFilterInput>;
   not?: InputMaybe<SocialFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<SocialFiltersInput>>>;
@@ -754,8 +762,7 @@ export type SocialFiltersInput = {
 };
 
 export type SocialInput = {
-  icon?: InputMaybe<Scalars['ID']['input']>;
-  invert?: InputMaybe<Scalars['Boolean']['input']>;
+  Icon?: InputMaybe<ComponentUtilsIconInput>;
   name?: InputMaybe<Scalars['String']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   url?: InputMaybe<Scalars['String']['input']>;
@@ -826,6 +833,30 @@ export type TitleInput = {
 export type TitleRelationResponseCollection = {
   __typename?: 'TitleRelationResponseCollection';
   data: Array<TitleEntity>;
+};
+
+export type ToolBox = {
+  __typename?: 'ToolBox';
+  Title: Scalars['String']['output'];
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+export type ToolBoxEntity = {
+  __typename?: 'ToolBoxEntity';
+  attributes?: Maybe<ToolBox>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type ToolBoxEntityResponse = {
+  __typename?: 'ToolBoxEntityResponse';
+  data?: Maybe<ToolBoxEntity>;
+};
+
+export type ToolBoxInput = {
+  Title?: InputMaybe<Scalars['String']['input']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
 };
 
 export type UploadFile = {
@@ -1201,10 +1232,17 @@ export type UsersPermissionsUserRelationResponseCollection = {
   data: Array<UsersPermissionsUserEntity>;
 };
 
+export type GetSkillQueryVariables = Exact<{
+  lang?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+}>;
+
+
+export type GetSkillQuery = { __typename?: 'Query', skills?: { __typename?: 'SkillEntityResponseCollection', data: Array<{ __typename?: 'SkillEntity', attributes?: { __typename?: 'Skill', Title?: string | null, Description?: string | null, Tools?: Array<{ __typename?: 'ComponentPortfolioTool', Name?: string | null, Description?: string | null, Icon?: { __typename?: 'ComponentUtilsIcon', Name?: string | null, Alt?: string | null, Media?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null } | null> | null } | null }> } | null };
+
 export type GetSocialQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetSocialQuery = { __typename?: 'Query', socials?: { __typename?: 'SocialEntityResponseCollection', data: Array<{ __typename?: 'SocialEntity', attributes?: { __typename?: 'Social', name: string, url: string, invert: boolean, icon: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } } | null }> } | null };
+export type GetSocialQuery = { __typename?: 'Query', socials?: { __typename?: 'SocialEntityResponseCollection', data: Array<{ __typename?: 'SocialEntity', attributes?: { __typename?: 'Social', name: string, url: string, Icon?: { __typename?: 'ComponentUtilsIcon', Name?: string | null, Invert?: boolean | null, Media?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null } | null }> } | null };
 
 export type GetTitleQueryVariables = Exact<{
   lang?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
@@ -1214,6 +1252,66 @@ export type GetTitleQueryVariables = Exact<{
 export type GetTitleQuery = { __typename?: 'Query', title?: { __typename?: 'TitleEntityResponse', data?: { __typename?: 'TitleEntity', id?: string | null, attributes?: { __typename?: 'Title', Title: string, Subtitle: string, Avatar: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null }, ReverseAvatar?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null, localizations?: { __typename?: 'TitleRelationResponseCollection', data: Array<{ __typename?: 'TitleEntity', id?: string | null, attributes?: { __typename?: 'Title', Title: string, Subtitle: string, Avatar: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null }, ReverseAvatar?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null }> } | null } | null } | null } | null };
 
 
+export const GetSkillDocument = gql`
+    query GetSkill($lang: I18NLocaleCode) {
+  skills(locale: $lang) {
+    data {
+      attributes {
+        Title
+        Description
+        Tools {
+          Name
+          Description
+          Icon {
+            Name
+            Alt
+            Media {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetSkillQuery__
+ *
+ * To run a query within a React component, call `useGetSkillQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetSkillQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetSkillQuery({
+ *   variables: {
+ *      lang: // value for 'lang'
+ *   },
+ * });
+ */
+export function useGetSkillQuery(baseOptions?: Apollo.QueryHookOptions<GetSkillQuery, GetSkillQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetSkillQuery, GetSkillQueryVariables>(GetSkillDocument, options);
+      }
+export function useGetSkillLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetSkillQuery, GetSkillQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetSkillQuery, GetSkillQueryVariables>(GetSkillDocument, options);
+        }
+export function useGetSkillSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetSkillQuery, GetSkillQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<GetSkillQuery, GetSkillQueryVariables>(GetSkillDocument, options);
+        }
+export type GetSkillQueryHookResult = ReturnType<typeof useGetSkillQuery>;
+export type GetSkillLazyQueryHookResult = ReturnType<typeof useGetSkillLazyQuery>;
+export type GetSkillSuspenseQueryHookResult = ReturnType<typeof useGetSkillSuspenseQuery>;
+export type GetSkillQueryResult = Apollo.QueryResult<GetSkillQuery, GetSkillQueryVariables>;
 export const GetSocialDocument = gql`
     query GetSocial {
   socials {
@@ -1221,11 +1319,14 @@ export const GetSocialDocument = gql`
       attributes {
         name
         url
-        invert
-        icon {
-          data {
-            attributes {
-              url
+        Icon {
+          Name
+          Invert
+          Media {
+            data {
+              attributes {
+                url
+              }
             }
           }
         }

@@ -24,20 +24,10 @@
       "required": true,
       "pluginOptions": {}
     },
-    "icon": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ],
-      "pluginOptions": {}
-    },
-    "invert": {
-      "type": "boolean",
-      "default": false,
-      "required": true,
-      "pluginOptions": {}
+    "Icon": {
+      "type": "component",
+      "repeatable": false,
+      "component": "utils.icon"
     }
   }
 }
