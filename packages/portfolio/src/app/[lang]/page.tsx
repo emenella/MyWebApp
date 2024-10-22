@@ -66,7 +66,7 @@ export default async function Home(props: HomeProps) {
           <h2 className="text-2xl font-bold">Skills :</h2>
           <PreloadQuery query={GetSkillDocument}>
             <Suspense>
-              <Skill/>
+              <Skill lang={props.params.lang}/>
             </Suspense>
           </PreloadQuery>
         </div>

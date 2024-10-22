@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_portfolio_projets",
+  "info": {
+    "displayName": "Projets"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    }
+  }
+}

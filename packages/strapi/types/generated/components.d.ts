@@ -1,5 +1,17 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface UtilsPicture extends Schema.Component {
+  collectionName: 'components_utils_pictures';
+  info: {
+    displayName: 'Picture';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Image: Attribute.Media<'images'> & Attribute.Required;
+    Alt: Attribute.Text & Attribute.Required;
+  };
+}
+
 export interface UtilsIcon extends Schema.Component {
   collectionName: 'components_utils_icons';
   info: {
@@ -28,11 +40,24 @@ export interface PortfolioTool extends Schema.Component {
   };
 }
 
+export interface PortfolioProjets extends Schema.Component {
+  collectionName: 'components_portfolio_projets';
+  info: {
+    displayName: 'Projets';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'utils.picture': UtilsPicture;
       'utils.icon': UtilsIcon;
       'portfolio.tool': PortfolioTool;
+      'portfolio.projets': PortfolioProjets;
     }
   }
 }
